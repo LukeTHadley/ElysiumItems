@@ -2,6 +2,7 @@ package com.github.lukethadley.elysiumtools;
 
 import com.github.lukethadley.elysiumtools.listeners.DemonicSwordListener;
 import com.github.lukethadley.elysiumtools.listeners.EnderBowListener;
+import com.github.lukethadley.elysiumtools.listeners.EssentialsFixListener;
 import com.github.lukethadley.elysiumtools.listeners.ShotgunBowListener;
 import com.google.common.collect.ImmutableMap;
 import org.bukkit.enchantments.Enchantment;
@@ -18,6 +19,8 @@ public final class ElysiumTools extends JavaPlugin {
         // Plugin startup logic
         getLogger().info("Testing elysium  tools startup");
         getCommand("elysiumtools").setExecutor(new ToolsCommandHandler());
+
+        getServer().getPluginManager().registerEvents(new EssentialsFixListener(), this);
 
         getServer().getPluginManager().registerEvents(new EnderBowListener(), this);
         getServer().getPluginManager().registerEvents(new ShotgunBowListener(this), this);
