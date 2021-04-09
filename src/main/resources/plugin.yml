@@ -1,0 +1,8 @@
+name: ElysiumTools
+version: ${project.version}
+main: com.github.lukethadley.elysiumtools.ElysiumTools
+api-version: 1.16
+authors: [ Thomas9078 ]
+commands:
+  elysiumtools:
+    description: a test command
