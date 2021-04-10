@@ -1,8 +1,8 @@
 package com.github.lukethadley.elysiumtools.listeners;
 
 import com.github.lukethadley.elysiumtools.ElysiumTools;
-import com.github.lukethadley.elysiumtools.Tools;
 import com.github.lukethadley.elysiumtools.ToolsMessages;
+import com.github.lukethadley.elysiumtools.items.tools.bows.ShotgunBow;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -29,9 +29,12 @@ public class ShotgunBowListener implements Listener {
     ElysiumTools plugin;
     ArrayList<UUID> cooldowns;
 
+    ShotgunBow shotgunBow;
+
     public ShotgunBowListener(ElysiumTools plugin){
         this.plugin = plugin;
         cooldowns = new ArrayList<>();
+        shotgunBow = new ShotgunBow();
     }
 
     @EventHandler
@@ -39,10 +42,11 @@ public class ShotgunBowListener implements Listener {
 
         if (e.getEntity() instanceof Player){
             Player player = (Player) e.getEntity();
-            if (!onCooldown(player)){
+            List<String> shotgunBowLore = Arrays.asList(shotgunBow.getLore());
+            if (e.getBow().getItemMeta().getLore().equals(shotgunBowLore)){// Ensure that it is the shotgun bow
 
-                List<String> shotgunBowLore = Arrays.asList(Tools.SHOTGUN_BOW.getLore());
-                if (e.getBow().getItemMeta().getLore().equals(shotgunBowLore)){ // Ensure that it is the shotgun bow
+
+                if (!onCooldown(player)){
                     if(player.getGameMode() != GameMode.CREATIVE){ //If the player is in creative then we can let them fire the bow regardless
 
                         if(!player.getInventory().contains(Material.ARROW, 5)){ //Check if the player's inventory doesn't contain 5 arrows

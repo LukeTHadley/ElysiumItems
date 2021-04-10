@@ -1,8 +1,8 @@
 package com.github.lukethadley.elysiumtools.listeners;
 
 import com.github.lukethadley.elysiumtools.ElysiumTools;
-import com.github.lukethadley.elysiumtools.Tools;
 import com.github.lukethadley.elysiumtools.ToolsMessages;
+import com.github.lukethadley.elysiumtools.items.tools.swords.DemonicSword;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,9 +20,12 @@ public class DemonicSwordListener implements Listener {
     ElysiumTools plugin;
     ArrayList<UUID> cooldowns;
 
+    DemonicSword demonicSword;
+
     public DemonicSwordListener(ElysiumTools plugin){
         this.plugin = plugin;
         cooldowns = new ArrayList<>();
+        demonicSword = new DemonicSword();
     }
 
     @EventHandler
@@ -32,7 +35,7 @@ public class DemonicSwordListener implements Listener {
                 Player damager = (Player) e.getDamager();
                 Player damagee = (Player) e.getEntity();
 
-                if (damager.getInventory().getItemInMainHand().getItemMeta().getLore().equals(Arrays.asList(Tools.DEMONIC_SWORD.getLore()))){
+                if (damager.getInventory().getItemInMainHand().getItemMeta().getLore().equals(Arrays.asList(demonicSword.getLore()))){
 
                     if (Math.random() < 0.2){
                         if (!onCooldown(damager)){

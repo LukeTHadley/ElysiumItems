@@ -14,8 +14,8 @@
 
 package com.github.lukethadley.elysiumtools.listeners;
 
-import com.github.lukethadley.elysiumtools.Tools;
 import com.github.lukethadley.elysiumtools.ToolsMessages;
+import com.github.lukethadley.elysiumtools.items.tools.bows.EnderBow;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -32,12 +32,18 @@ import java.util.List;
 
 public class EnderBowListener implements Listener {
 
+    EnderBow enderBow;
+
+    public EnderBowListener(){
+        enderBow = new EnderBow();
+    }
+
     @EventHandler
     public void enderBowEvent(EntityShootBowEvent e){
 
         if (e.getEntity() instanceof Player){ //Make sure the entity shooting this is a player
             Player player = (Player) e.getEntity();
-            List<String> enderBowLore = Arrays.asList(Tools.ENDER_BOW.getLore());
+            List<String> enderBowLore = Arrays.asList(enderBow.getLore());
             if (e.getBow().getItemMeta().getLore().equals(enderBowLore)){ // Ensure that it is the enderbow
                 if(player.getGameMode() != GameMode.CREATIVE){ //If the player is in creative then we can let them fire the bow regardless of whether they have ender pearls
                     if(!player.getInventory().contains(Material.ENDER_PEARL)){ //Check if the player's inventory contains any ender pearls

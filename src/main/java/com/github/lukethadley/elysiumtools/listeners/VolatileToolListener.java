@@ -5,6 +5,11 @@ https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/player/PlayerItemBreak
 
 package com.github.lukethadley.elysiumtools.listeners;
 
+import com.github.lukethadley.elysiumtools.items.tools.axes.VolatileAxe;
+import com.github.lukethadley.elysiumtools.items.tools.hoes.VolatileHoe;
+import com.github.lukethadley.elysiumtools.items.tools.pickaxes.VolatilePickaxe;
+import com.github.lukethadley.elysiumtools.items.tools.shovels.VolatileShovel;
+import com.github.lukethadley.elysiumtools.items.tools.swords.VolatileSword;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
@@ -30,27 +35,45 @@ public class VolatileToolListener implements Listener {
 
     public static Random rand;
 
+    VolatileAxe volatileAxe;
+    VolatileHoe volatileHoe;
+    VolatilePickaxe volatilePickaxe;
+    VolatileShovel volatileShovel;
+    VolatileSword volatileSword;
+
     public VolatileToolListener(){
+        volatileAxe = new VolatileAxe();
+        volatileHoe = new VolatileHoe();
+        volatilePickaxe = new VolatilePickaxe();
+        volatileShovel = new VolatileShovel();
+        volatileSword = new VolatileSword();
         rand = new Random();
     }
 
     //Run the firework on item breaking
     @EventHandler
     public void volatileToolExplosion(PlayerItemBreakEvent e){
-        Location loc = e.getPlayer().getLocation();
-        loc.setY(loc.getY()+1);
+        List<String> brokenItemLore = e.getBrokenItem().getItemMeta().getLore();
+        if (brokenItemLore == null){
+            return;
+        }
+        if (brokenItemLore.equals(volatileAxe.getLoreAsListString()) || brokenItemLore.equals(volatileHoe.getLoreAsListString()) || brokenItemLore.equals(volatilePickaxe.getLoreAsListString()) || brokenItemLore.equals(volatileShovel.getLoreAsListString()) || brokenItemLore.equals(volatileSword.getLoreAsListString())){
 
-        Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
-        FireworkMeta fwm = fw.getFireworkMeta();
+            Location loc = e.getPlayer().getLocation();
+            loc.setY(loc.getY()+1);
 
-        fwm.addEffect(FireworkEffect.builder().withColor(COLOR_LIST.get(rand.nextInt(COLOR_LIST.size()))).flicker(true).build());
-        fwm.addEffect(FireworkEffect.builder().withColor(COLOR_LIST.get(rand.nextInt(COLOR_LIST.size()))).trail(true).build());
+            Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
+            FireworkMeta fwm = fw.getFireworkMeta();
 
-        fwm.setLore(VOLATILE_FIREWORK_LORE_TAG);
+            fwm.addEffect(FireworkEffect.builder().withColor(COLOR_LIST.get(rand.nextInt(COLOR_LIST.size()))).flicker(true).build());
+            fwm.addEffect(FireworkEffect.builder().withColor(COLOR_LIST.get(rand.nextInt(COLOR_LIST.size()))).trail(true).build());
 
-        fw.setFireworkMeta(fwm);
-        fw.detonate();
+            fwm.setLore(VOLATILE_FIREWORK_LORE_TAG);
 
+            fw.setFireworkMeta(fwm);
+            fw.detonate();
+        }
+        return;
     }
 
     //Negate the damage that the firework does, set the health of the player to half a heart
