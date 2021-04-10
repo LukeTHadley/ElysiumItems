@@ -43,6 +43,10 @@ public class ShotgunBowListener implements Listener {
         if (e.getEntity() instanceof Player){
             Player player = (Player) e.getEntity();
             List<String> shotgunBowLore = Arrays.asList(shotgunBow.getLore());
+            if (shotgunBowLore == null){
+                return;
+            }
+
             if (e.getBow().getItemMeta().getLore().equals(shotgunBowLore)){// Ensure that it is the shotgun bow
 
 

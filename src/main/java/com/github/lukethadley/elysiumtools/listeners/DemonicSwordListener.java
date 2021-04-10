@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitScheduler;
@@ -34,6 +34,11 @@ public class DemonicSwordListener implements Listener {
             if (e.getDamager() instanceof  Player){ //And the entity that damaged that player is a player
                 Player damager = (Player) e.getDamager();
                 Player damagee = (Player) e.getEntity();
+
+                ItemStack tool = damager.getInventory().getItemInMainHand();
+                if (tool == null || tool.getItemMeta().getLore() == null){
+                    return;
+                }
 
                 if (damager.getInventory().getItemInMainHand().getItemMeta().getLore().equals(Arrays.asList(demonicSword.getLore()))){
 

@@ -44,6 +44,10 @@ public class EnderBowListener implements Listener {
         if (e.getEntity() instanceof Player){ //Make sure the entity shooting this is a player
             Player player = (Player) e.getEntity();
             List<String> enderBowLore = Arrays.asList(enderBow.getLore());
+            if (enderBowLore == null){
+                return;
+            }
+
             if (e.getBow().getItemMeta().getLore().equals(enderBowLore)){ // Ensure that it is the enderbow
                 if(player.getGameMode() != GameMode.CREATIVE){ //If the player is in creative then we can let them fire the bow regardless of whether they have ender pearls
                     if(!player.getInventory().contains(Material.ENDER_PEARL)){ //Check if the player's inventory contains any ender pearls
