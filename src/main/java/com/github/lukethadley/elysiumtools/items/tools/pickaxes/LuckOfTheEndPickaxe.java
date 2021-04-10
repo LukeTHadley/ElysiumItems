@@ -3,6 +3,7 @@ package com.github.lukethadley.elysiumtools.items.tools.pickaxes;
 import com.github.lukethadley.elysiumtools.items.CustomToolInterface;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -16,7 +17,7 @@ public class LuckOfTheEndPickaxe extends CustomToolInterface {
     private static final String[] ITEM_LORE = new String[]{"&7This pickaxe has the chance", "&7of dropping extra loot while", "&7mining end blocks in the end!"};
 
     public LuckOfTheEndPickaxe(){
-        super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.DIAMOND_PICKAXE);
+        super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.GOLDEN_PICKAXE);
     }
 
     @Override
@@ -28,7 +29,8 @@ public class LuckOfTheEndPickaxe extends CustomToolInterface {
         itmMeta.setLore(Arrays.asList(getLore()));
 
 
-        itmMeta.addEnchant(Enchantment.DURABILITY, 3, true);
+        itmMeta.addEnchant(Enchantment.LUCK, 1, true);
+        itmMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         itmStk.setItemMeta(itmMeta);
 
