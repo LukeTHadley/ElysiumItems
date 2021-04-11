@@ -25,6 +25,7 @@ public final class ElysiumTools extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new VolatileToolListener(), this);
         getServer().getPluginManager().registerEvents(new LuckOfTheEndListener(), this);
         getServer().getPluginManager().registerEvents(new LuckOfTheNetherListener(), this);
+        getServer().getPluginManager().registerEvents(new LuckOfTheOceanListener(), this);
 
 
     }

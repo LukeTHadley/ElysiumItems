@@ -4,6 +4,7 @@ import com.github.lukethadley.elysiumtools.items.tools.axes.VolatileAxe;
 import com.github.lukethadley.elysiumtools.items.tools.hoes.VolatileHoe;
 import com.github.lukethadley.elysiumtools.items.tools.pickaxes.LuckOfTheEndPickaxe;
 import com.github.lukethadley.elysiumtools.items.tools.pickaxes.LuckOfTheNetherPickaxe;
+import com.github.lukethadley.elysiumtools.items.tools.pickaxes.LuckOfTheOceanPickaxe;
 import com.github.lukethadley.elysiumtools.items.tools.pickaxes.VolatilePickaxe;
 import com.github.lukethadley.elysiumtools.items.tools.shovels.VolatileShovel;
 import com.github.lukethadley.elysiumtools.items.tools.swords.DemonicSword;
@@ -40,6 +41,8 @@ public class ItemHandler {
         customItems.put(luckOfTheEndPickaxe.getName(), luckOfTheEndPickaxe);
         LuckOfTheNetherPickaxe luckOfTheNetherPickaxe = new LuckOfTheNetherPickaxe();
         customItems.put(luckOfTheNetherPickaxe.getName(), luckOfTheNetherPickaxe);
+        LuckOfTheOceanPickaxe luckOfTheOceanPickaxe = new LuckOfTheOceanPickaxe();
+        customItems.put(luckOfTheOceanPickaxe.getName(), luckOfTheOceanPickaxe);
 
         //Volatile Items
         VolatileSword volatileSword = new VolatileSword();
