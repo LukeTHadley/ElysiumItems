@@ -1,4 +1,4 @@
-package com.github.lukethadley.elysiumtools.listeners;
+package com.github.lukethadley.elysiumtools.listeners.tools;
 
 import com.github.lukethadley.elysiumtools.items.tools.pickaxes.LuckOfTheEndPickaxe;
 import org.bukkit.Material;

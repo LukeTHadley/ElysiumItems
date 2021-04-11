@@ -1,4 +1,4 @@
-package com.github.lukethadley.elysiumtools.listeners;
+package com.github.lukethadley.elysiumtools.listeners.tools;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

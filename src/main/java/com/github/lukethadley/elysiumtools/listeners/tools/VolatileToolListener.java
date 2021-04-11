@@ -3,7 +3,7 @@ https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/player/PlayerItemBreak
  */
 
 
-package com.github.lukethadley.elysiumtools.listeners;
+package com.github.lukethadley.elysiumtools.listeners.tools;
 
 import com.github.lukethadley.elysiumtools.items.tools.axes.VolatileAxe;
 import com.github.lukethadley.elysiumtools.items.tools.hoes.VolatileHoe;

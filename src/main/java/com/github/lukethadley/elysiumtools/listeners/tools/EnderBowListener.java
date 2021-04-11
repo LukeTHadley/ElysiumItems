@@ -12,7 +12,7 @@
 
  */
 
-package com.github.lukethadley.elysiumtools.listeners;
+package com.github.lukethadley.elysiumtools.listeners.tools;
 
 import com.github.lukethadley.elysiumtools.ToolsMessages;
 import com.github.lukethadley.elysiumtools.items.tools.bows.EnderBow;
