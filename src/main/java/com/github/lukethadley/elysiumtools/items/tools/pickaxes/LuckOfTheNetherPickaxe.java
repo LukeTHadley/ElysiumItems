@@ -9,14 +9,14 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
 
-public class LuckOfTheEndPickaxe extends CustomToolInterface {
+public class LuckOfTheNetherPickaxe extends CustomToolInterface {
 
-    private static final String NAME = "LuckOfTheEndPickaxe";
-    private static final String ITEM_DISPLAY_NAME = "&5&lLuck Of The End Pickaxe";
-    private static final String DESCRIPTION = "This pickaxe will drop extra loot while mining end blocks in the end!";
-    private static final String[] ITEM_LORE = new String[]{"&7This pickaxe will drop", "&7 extra loot while", "&7mining end blocks in the end!"};
+    private static final String NAME = "LuckOfTheNetherPickaxe";
+    private static final String ITEM_DISPLAY_NAME = "&c&lLuck Of The Nether Pickaxe";
+    private static final String DESCRIPTION = "This pickaxe will drop extra loot while mining nether blocks in the end!";
+    private static final String[] ITEM_LORE = new String[]{"&7This pickaxe will drop", "&7 extra loot while", "&7mining nether blocks in the end!"};
 
-    public LuckOfTheEndPickaxe(){
+    public LuckOfTheNetherPickaxe(){
         super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.GOLDEN_PICKAXE);
     }
 
