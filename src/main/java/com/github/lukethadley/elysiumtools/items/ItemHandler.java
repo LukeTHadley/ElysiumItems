@@ -1,6 +1,7 @@
 package com.github.lukethadley.elysiumtools.items;
 
 import com.github.lukethadley.elysiumtools.items.armor.boots.BunnyBoots;
+import com.github.lukethadley.elysiumtools.items.armor.helmets.MinersHelmet;
 import com.github.lukethadley.elysiumtools.items.tools.axes.VolatileAxe;
 import com.github.lukethadley.elysiumtools.items.tools.hoes.VolatileHoe;
 import com.github.lukethadley.elysiumtools.items.tools.pickaxes.LuckOfTheEndPickaxe;
@@ -60,6 +61,10 @@ public class ItemHandler {
         //Boots
         BunnyBoots bunnyBoots = new BunnyBoots();
         customItems.put(bunnyBoots.getName(), bunnyBoots);
+
+        //Helmets
+        MinersHelmet minersHelmet = new MinersHelmet();
+        customItems.put(minersHelmet.getName(), minersHelmet);
 
     }
 
