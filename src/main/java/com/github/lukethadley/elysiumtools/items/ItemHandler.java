@@ -1,5 +1,6 @@
 package com.github.lukethadley.elysiumtools.items;
 
+import com.github.lukethadley.elysiumtools.items.armor.boots.BunnyBoots;
 import com.github.lukethadley.elysiumtools.items.tools.axes.VolatileAxe;
 import com.github.lukethadley.elysiumtools.items.tools.hoes.VolatileHoe;
 import com.github.lukethadley.elysiumtools.items.tools.pickaxes.LuckOfTheEndPickaxe;
@@ -55,6 +56,10 @@ public class ItemHandler {
         customItems.put(volatilePickaxe.getName(), volatilePickaxe);
         VolatileHoe volatileHoe = new VolatileHoe();
         customItems.put(volatileHoe.getName(), volatileHoe);
+
+        //Boots
+        BunnyBoots bunnyBoots = new BunnyBoots();
+        customItems.put(bunnyBoots.getName(), bunnyBoots);
 
     }
 

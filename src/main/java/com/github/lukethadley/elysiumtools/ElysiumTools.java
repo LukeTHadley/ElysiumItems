@@ -1,5 +1,6 @@
 package com.github.lukethadley.elysiumtools;
 
+import com.github.lukethadley.elysiumtools.listeners.armor.BunnyBootsListener;
 import com.github.lukethadley.elysiumtools.listeners.tools.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -21,6 +22,8 @@ public final class ElysiumTools extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new LuckOfTheEndListener(), this);
         getServer().getPluginManager().registerEvents(new LuckOfTheNetherListener(), this);
         getServer().getPluginManager().registerEvents(new LuckOfTheOceanListener(), this);
+
+        getServer().getPluginManager().registerEvents(new BunnyBootsListener(), this);
 
 
     }
