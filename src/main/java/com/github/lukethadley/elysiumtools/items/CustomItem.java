@@ -11,13 +11,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-public abstract class CustomToolInterface {
+public abstract class CustomItem {
 
     private String name, itemName, description;
     private String[] lore;
     private Material itemType;
 
-    public CustomToolInterface(String name, String itemName, String description, String[] lore, Material itemType){
+    public CustomItem(String name, String itemName, String description, String[] lore, Material itemType){
         this.name = name;
         this.itemName = itemName;
         this.description = description;

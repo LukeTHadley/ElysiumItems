@@ -1,16 +1,12 @@
 package com.github.lukethadley.elysiumtools;
 
-import com.github.lukethadley.elysiumtools.items.CustomToolInterface;
+import com.github.lukethadley.elysiumtools.items.CustomItem;
 import com.github.lukethadley.elysiumtools.items.ItemHandler;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemFlag;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.*;
 
@@ -28,7 +24,7 @@ public class ToolsCommandHandler implements TabExecutor {
             if (args[0].equalsIgnoreCase("list")){
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', ToolsMessages.LIST_ALL_TOOLS_HEADER));
 
-                for (CustomToolInterface item : items.getCustomItems().values()) {
+                for (CustomItem item : items.getCustomItems().values()) {
                     sender.sendMessage(item.getName() + ChatColor.GRAY + " - " + item.getDescription());
                 }
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', ToolsMessages.LIST_ALL_TOOLS_FOOTER));
@@ -48,7 +44,7 @@ public class ToolsCommandHandler implements TabExecutor {
         List<String> suggestionList = new ArrayList<>();
         if (command.getName().equals("elysiumtools")){
             if (args.length == 1) {
-                for (CustomToolInterface item : items.getCustomItems().values()) {
+                for (CustomItem item : items.getCustomItems().values()) {
                     if (item.getName().toLowerCase().startsWith(args[0].toLowerCase())) {
                         suggestionList.add(item.getName());
                     }

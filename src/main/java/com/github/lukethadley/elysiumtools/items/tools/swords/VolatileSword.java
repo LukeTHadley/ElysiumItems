@@ -1,6 +1,6 @@
 package com.github.lukethadley.elysiumtools.items.tools.swords;
 
-import com.github.lukethadley.elysiumtools.items.CustomToolInterface;
+import com.github.lukethadley.elysiumtools.items.CustomItem;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
 
-public class VolatileSword extends CustomToolInterface {
+public class VolatileSword extends CustomItem {
 
     public VolatileSword() {
         super("VolatileSword", "&6&lVolatile Sword", "This item will explode when it breaks!", new String[]{"&7This item will explode when it breaks!"}, Material.GOLDEN_SWORD);

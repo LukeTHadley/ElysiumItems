@@ -1,6 +1,6 @@
 package com.github.lukethadley.elysiumtools.items.tools.shovels;
 
-import com.github.lukethadley.elysiumtools.items.CustomToolInterface;
+import com.github.lukethadley.elysiumtools.items.CustomItem;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
@@ -8,7 +8,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
 
-public class VolatileShovel extends CustomToolInterface {
+public class VolatileShovel extends CustomItem {
 
     private static final String NAME = "VolatileShovel";
     private static final String ITEM_DISPLAY_NAME = "&6&lVolatile Shovel";

@@ -1,6 +1,6 @@
 package com.github.lukethadley.elysiumtools.items.tools.bows;
 
-import com.github.lukethadley.elysiumtools.items.CustomToolInterface;
+import com.github.lukethadley.elysiumtools.items.CustomItem;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -10,7 +10,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
 
-public class ShotgunBow extends CustomToolInterface {
+public class ShotgunBow extends CustomItem {
 
     private static final String NAME = "ShotgunBow";
     private static final String ITEM_DISPLAY_NAME = ChatColor.BLUE + "" + ChatColor.BOLD + "Shotgun Bow";

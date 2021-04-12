@@ -16,7 +16,7 @@ import java.util.HashMap;
 
 public class ItemHandler {
 
-    private HashMap<String, CustomToolInterface> customItems;
+    private HashMap<String, CustomItem> customItems;
 
     public ItemHandler(){
         customItems = new HashMap<>();
@@ -58,7 +58,7 @@ public class ItemHandler {
 
     }
 
-    public HashMap<String, CustomToolInterface> getCustomItems(){
+    public HashMap<String, CustomItem> getCustomItems(){
         return customItems;
     }
 

@@ -1,6 +1,6 @@
 package com.github.lukethadley.elysiumtools.items.tools.pickaxes;
 
-import com.github.lukethadley.elysiumtools.items.CustomToolInterface;
+import com.github.lukethadley.elysiumtools.items.CustomItem;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
 
-public class LuckOfTheNetherPickaxe extends CustomToolInterface {
+public class LuckOfTheNetherPickaxe extends CustomItem {
 
     private static final String NAME = "LuckOfTheNetherPickaxe";
     private static final String ITEM_DISPLAY_NAME = "&c&lLuck Of The Nether Pickaxe";

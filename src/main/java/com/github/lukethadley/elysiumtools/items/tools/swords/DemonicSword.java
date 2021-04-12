@@ -1,6 +1,6 @@
 package com.github.lukethadley.elysiumtools.items.tools.swords;
 
-import com.github.lukethadley.elysiumtools.items.CustomToolInterface;
+import com.github.lukethadley.elysiumtools.items.CustomItem;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
 
-public class DemonicSword extends CustomToolInterface {
+public class DemonicSword extends CustomItem {
 
     private static final String NAME = "DemonicSword";
     private static final String ITEM_DISPLAY_NAME = ChatColor.DARK_RED + "" + ChatColor.BOLD + "Demonic Sword";
