@@ -1,7 +1,11 @@
 package com.github.lukethadley.elysiumtools.items;
 
 import com.github.lukethadley.elysiumtools.items.armor.boots.BunnyBoots;
+import com.github.lukethadley.elysiumtools.items.armor.boots.VoyagerBoots;
+import com.github.lukethadley.elysiumtools.items.armor.chestplate.VoyagerChestplate;
 import com.github.lukethadley.elysiumtools.items.armor.helmets.MinersHelmet;
+import com.github.lukethadley.elysiumtools.items.armor.helmets.VoyagerHelmet;
+import com.github.lukethadley.elysiumtools.items.armor.leggings.VoyagerLeggings;
 import com.github.lukethadley.elysiumtools.items.tools.axes.VolatileAxe;
 import com.github.lukethadley.elysiumtools.items.tools.hoes.VolatileHoe;
 import com.github.lukethadley.elysiumtools.items.tools.pickaxes.LuckOfTheEndPickaxe;
@@ -65,6 +69,16 @@ public class ItemHandler {
         //Helmets
         MinersHelmet minersHelmet = new MinersHelmet();
         customItems.put(minersHelmet.getName(), minersHelmet);
+
+        //Voyager Set
+        VoyagerHelmet voyagerHelmet = new VoyagerHelmet();
+        customItems.put(voyagerHelmet.getName(), voyagerHelmet);
+        VoyagerChestplate voyagerChestplate = new VoyagerChestplate();
+        customItems.put(voyagerChestplate.getName(), voyagerChestplate);
+        VoyagerLeggings voyagerLeggings = new VoyagerLeggings();
+        customItems.put(voyagerLeggings.getName(), voyagerLeggings);
+        VoyagerBoots voyagerBoots = new VoyagerBoots();
+        customItems.put(voyagerBoots.getName(), voyagerBoots);
 
     }
 

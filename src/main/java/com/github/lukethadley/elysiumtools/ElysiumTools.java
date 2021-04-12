@@ -2,6 +2,7 @@ package com.github.lukethadley.elysiumtools;
 
 import com.github.lukethadley.elysiumtools.listeners.armor.BunnyBootsListener;
 import com.github.lukethadley.elysiumtools.listeners.armor.MinersHelmetListener;
+import com.github.lukethadley.elysiumtools.listeners.armor.VoyagerSetListener;
 import com.github.lukethadley.elysiumtools.listeners.tools.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -26,6 +27,7 @@ public final class ElysiumTools extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new BunnyBootsListener(), this);
         getServer().getPluginManager().registerEvents(new MinersHelmetListener(), this);
+        getServer().getPluginManager().registerEvents(new VoyagerSetListener(), this);
 
 
     }
