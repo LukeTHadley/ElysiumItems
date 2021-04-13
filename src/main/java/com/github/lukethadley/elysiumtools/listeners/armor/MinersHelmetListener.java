@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -48,6 +49,18 @@ public class MinersHelmetListener implements Listener {
                 }
             }
 
+        }
+    }
+
+    @EventHandler
+    public void inventoryClose(InventoryCloseEvent event){
+        Player player = (Player) event.getPlayer();
+        ItemStack helmet = player.getInventory().getHelmet();
+        if (helmet != null && helmet.getItemMeta().hasLore()){
+            if (helmet.getItemMeta().getLore().equals(minersHelmet.getLoreAsListString())){
+                player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0));
+                return;
+            }
         }
     }
 

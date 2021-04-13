@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -47,6 +48,18 @@ public class BunnyBootsListener implements Listener {
                 }
             }
 
+        }
+    }
+
+    @EventHandler
+    public void inventoryClose(InventoryCloseEvent event){
+        Player player = (Player) event.getPlayer();
+        ItemStack boots = player.getInventory().getBoots();
+        if (boots != null && boots.getItemMeta().hasLore()){
+            if (boots.getItemMeta().getLore().equals(bunnyBoots.getLoreAsListString())){
+                player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, Integer.MAX_VALUE, 2));
+                return;
+            }
         }
     }
 
