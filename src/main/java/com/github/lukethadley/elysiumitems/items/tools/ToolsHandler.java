@@ -14,6 +14,7 @@ import com.github.lukethadley.elysiumitems.items.tools.pickaxes.LuckOfTheNetherP
 import com.github.lukethadley.elysiumitems.items.tools.pickaxes.LuckOfTheOceanPickaxe;
 import com.github.lukethadley.elysiumitems.items.tools.pickaxes.VolatilePickaxe;
 import com.github.lukethadley.elysiumitems.items.tools.shovels.VolatileShovel;
+import com.github.lukethadley.elysiumitems.items.tools.swords.CowardsCutlassSword;
 import com.github.lukethadley.elysiumitems.items.tools.swords.DemonicSword;
 import com.github.lukethadley.elysiumitems.items.tools.swords.VolatileSword;
 import com.github.lukethadley.elysiumitems.items.tools.bows.EnderBow;
@@ -35,6 +36,8 @@ public class ToolsHandler {
 
         DemonicSword demonicSword = new DemonicSword();
         customItems.put(demonicSword.getName(), demonicSword);
+        CowardsCutlassSword cowardsCutlassSword = new CowardsCutlassSword();
+        customItems.put(cowardsCutlassSword.getName(), cowardsCutlassSword);
 
         //Bows
         EnderBow enderBow = new EnderBow();

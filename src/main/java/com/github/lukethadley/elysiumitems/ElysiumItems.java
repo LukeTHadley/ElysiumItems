@@ -2,6 +2,7 @@ package com.github.lukethadley.elysiumitems;
 
 import com.github.lukethadley.elysiumitems.listeners.armor.BunnyBootsListener;
 import com.github.lukethadley.elysiumitems.listeners.armor.MinersHelmetListener;
+import com.github.lukethadley.elysiumitems.listeners.armor.ScooberSetListener;
 import com.github.lukethadley.elysiumitems.listeners.armor.VoyagerSetListener;
 import com.github.lukethadley.elysiumitems.listeners.tools.*;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -16,7 +17,7 @@ public final class ElysiumItems extends JavaPlugin {
         getCommand("elysiumtools").setExecutor(new ToolsCommandHandler(this));
         getCommand("elysiumarmor").setExecutor(new ArmorCommandHandler(this));
 
-        getServer().getPluginManager().registerEvents(new EssentialsFixListener(), this);
+        //getServer().getPluginManager().registerEvents(new EssentialsFixListener(), this);
 
         getServer().getPluginManager().registerEvents(new EnderBowListener(), this);
         getServer().getPluginManager().registerEvents(new ShotgunBowListener(this), this);
@@ -25,10 +26,12 @@ public final class ElysiumItems extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new LuckOfTheEndListener(), this);
         getServer().getPluginManager().registerEvents(new LuckOfTheNetherListener(), this);
         getServer().getPluginManager().registerEvents(new LuckOfTheOceanListener(), this);
+        getServer().getPluginManager().registerEvents(new CowardsCutlassListener(), this);
 
         getServer().getPluginManager().registerEvents(new BunnyBootsListener(), this);
         getServer().getPluginManager().registerEvents(new MinersHelmetListener(), this);
         getServer().getPluginManager().registerEvents(new VoyagerSetListener(), this);
+        getServer().getPluginManager().registerEvents(new ScooberSetListener(), this);
 
         getLogger().info("Finished Loading Elysium Items");
     }

@@ -2,10 +2,14 @@ package com.github.lukethadley.elysiumitems.items.armor;
 
 import com.github.lukethadley.elysiumitems.items.CustomItem;
 import com.github.lukethadley.elysiumitems.items.armor.boots.BunnyBoots;
+import com.github.lukethadley.elysiumitems.items.armor.boots.ScooberBoots;
 import com.github.lukethadley.elysiumitems.items.armor.boots.VoyagerBoots;
+import com.github.lukethadley.elysiumitems.items.armor.chestplate.ScooberChestplate;
 import com.github.lukethadley.elysiumitems.items.armor.chestplate.VoyagerChestplate;
 import com.github.lukethadley.elysiumitems.items.armor.helmets.MinersHelmet;
+import com.github.lukethadley.elysiumitems.items.armor.helmets.ScooberHelmet;
 import com.github.lukethadley.elysiumitems.items.armor.helmets.VoyagerHelmet;
+import com.github.lukethadley.elysiumitems.items.armor.leggings.ScooberLeggings;
 import com.github.lukethadley.elysiumitems.items.armor.leggings.VoyagerLeggings;
 
 import java.util.HashMap;
@@ -39,6 +43,15 @@ public class ArmorHandler {
         VoyagerBoots voyagerBoots = new VoyagerBoots();
         customItems.put(voyagerBoots.getName(), voyagerBoots);
 
+        //Scoober Set
+        ScooberHelmet scooberHelmet = new ScooberHelmet();
+        customItems.put(scooberHelmet.getName(), scooberHelmet);
+        ScooberChestplate scooberChestplate = new ScooberChestplate();
+        customItems.put(scooberChestplate.getName(), scooberChestplate);
+        ScooberLeggings scooberLeggings = new ScooberLeggings();
+        customItems.put(scooberLeggings.getName(), scooberLeggings);
+        ScooberBoots scooberBoots = new ScooberBoots();
+        customItems.put(scooberBoots.getName(), scooberBoots);
     }
 
     public HashMap<String, CustomItem> getCustomItems(){
