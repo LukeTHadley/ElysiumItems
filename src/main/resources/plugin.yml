@@ -6,3 +6,4 @@ authors: [ Thomas9078 ]
 commands:
   elysiumtools:
     description: a test command
+    usage: /elysiumtools [give | list] {toolname} {playername}

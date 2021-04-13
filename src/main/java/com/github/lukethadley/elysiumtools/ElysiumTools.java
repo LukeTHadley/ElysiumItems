@@ -13,7 +13,7 @@ public final class ElysiumTools extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getLogger().info("Testing elysium  tools startup");
-        getCommand("elysiumtools").setExecutor(new ToolsCommandHandler());
+        getCommand("elysiumtools").setExecutor(new ToolsCommandHandler(this));
 
         getServer().getPluginManager().registerEvents(new EssentialsFixListener(), this);
 
