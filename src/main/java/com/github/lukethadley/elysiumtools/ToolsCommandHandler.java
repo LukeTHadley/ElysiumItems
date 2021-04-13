@@ -20,6 +20,7 @@ public class ToolsCommandHandler implements TabExecutor {
     public ToolsCommandHandler(ElysiumTools plugin){
         this.plugin = plugin;
         items = new ItemHandler();
+        plugin.getLogger().info("Loaded " + items.getCustomItems().size() + " custom tools...");
     }
 
     @Override

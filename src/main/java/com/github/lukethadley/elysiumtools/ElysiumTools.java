@@ -12,7 +12,7 @@ public final class ElysiumTools extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        getLogger().info("Testing elysium  tools startup");
+        getLogger().info("Starting Elysium Items");
         getCommand("elysiumtools").setExecutor(new ToolsCommandHandler(this));
 
         getServer().getPluginManager().registerEvents(new EssentialsFixListener(), this);
@@ -29,13 +29,13 @@ public final class ElysiumTools extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MinersHelmetListener(), this);
         getServer().getPluginManager().registerEvents(new VoyagerSetListener(), this);
 
-
+        getLogger().info("Finished Loading Elysium Items");
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        getLogger().info("Testing elysium  tools shutdown");
+        getLogger().info("Disabling Elysium Items");
     }
 
 
