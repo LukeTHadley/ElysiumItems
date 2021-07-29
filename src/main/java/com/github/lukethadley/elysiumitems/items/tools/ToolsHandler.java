@@ -1,13 +1,8 @@
 package com.github.lukethadley.elysiumitems.items.tools;
 
 import com.github.lukethadley.elysiumitems.items.CustomItem;
-import com.github.lukethadley.elysiumitems.items.armor.boots.BunnyBoots;
-import com.github.lukethadley.elysiumitems.items.armor.boots.VoyagerBoots;
-import com.github.lukethadley.elysiumitems.items.armor.chestplate.VoyagerChestplate;
-import com.github.lukethadley.elysiumitems.items.armor.helmets.MinersHelmet;
-import com.github.lukethadley.elysiumitems.items.armor.helmets.VoyagerHelmet;
-import com.github.lukethadley.elysiumitems.items.armor.leggings.VoyagerLeggings;
 import com.github.lukethadley.elysiumitems.items.tools.axes.VolatileAxe;
+import com.github.lukethadley.elysiumitems.items.tools.bows.LightningBow;
 import com.github.lukethadley.elysiumitems.items.tools.hoes.VolatileHoe;
 import com.github.lukethadley.elysiumitems.items.tools.pickaxes.LuckOfTheEndPickaxe;
 import com.github.lukethadley.elysiumitems.items.tools.pickaxes.LuckOfTheNetherPickaxe;
@@ -44,6 +39,8 @@ public class ToolsHandler {
         customItems.put(enderBow.getName(), enderBow);
         ShotgunBow shotgunBow = new ShotgunBow();
         customItems.put(shotgunBow.getName(), shotgunBow);
+        LightningBow lightningBow = new LightningBow();
+        customItems.put(lightningBow.getName(), lightningBow);
 
         //Pickaxes
         LuckOfTheEndPickaxe luckOfTheEndPickaxe = new LuckOfTheEndPickaxe();
