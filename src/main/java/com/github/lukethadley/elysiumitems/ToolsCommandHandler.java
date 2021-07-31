@@ -47,8 +47,12 @@ public class ToolsCommandHandler implements TabExecutor {
                                 Player playerToGiveTo = plugin.getServer().getPlayer(args[2]);
                                 if (playerToGiveTo != null){ //And the player exists
                                     playerToGiveTo.getInventory().addItem(item.getItem()); //Give to the player
-                                    sender.sendMessage("You were given " + item.getName());
-                                    plugin.getServer().getLogger().info(playerToGiveTo.getName() + " was given " + item.getName());
+                                    sender.sendMessage("You gave " + item.getName() + " to " + playerToGiveTo.getName());
+                                    playerToGiveTo.sendMessage("You were given " + item.getName());
+                                    plugin.getServer().getLogger().info(playerToGiveTo.getName() + " was given " + item.getName() + " by " + sender.getName());
+                                    return true;
+
+
                                 }
                                 else { //If the player did not exist
                                     sender.sendMessage("That player does not exist!");
@@ -59,6 +63,8 @@ public class ToolsCommandHandler implements TabExecutor {
                                     Player p = (Player) sender;
                                     p.getInventory().addItem(item.getItem());
                                     sender.sendMessage("You were given " + item.getName());
+                                    plugin.getServer().getLogger().info(sender.getName() + " was given " + item.getName() + " by themselves");
+                                    return true;
                                 }
                                 else { //Console should not be given items, tell them off!
                                     sender.sendMessage("You must specify a player as console!");
