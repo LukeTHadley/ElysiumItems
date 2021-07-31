@@ -61,6 +61,7 @@ public class ArmorCommandHandler implements TabExecutor {
                                 if (sender instanceof Player){ //If a player wasn't specified, and the sender was a player, give it to that player
                                     Player p = (Player) sender;
                                     p.getInventory().addItem(item.getItem());
+                                    sender.sendMessage("You were given " + item.getName());
                                     plugin.getServer().getLogger().info(sender.getName() + " was given " + item.getName() + " by themselves");
                                     return true;
                                 }
