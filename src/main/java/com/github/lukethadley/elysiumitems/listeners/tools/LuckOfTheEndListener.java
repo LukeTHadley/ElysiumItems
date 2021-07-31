@@ -31,7 +31,6 @@ public class LuckOfTheEndListener implements Listener {
 
     private Random rand;
 
-
     public LuckOfTheEndListener(){
         luckOfTheEndPickaxe = new LuckOfTheEndPickaxe();
         rewardsList = new ArrayList<>();
@@ -120,8 +119,6 @@ public class LuckOfTheEndListener implements Listener {
             }
             if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore().equals(luckOfTheEndPickaxe.getLoreAsListString())){
                 if (MATERIAL_LIST.contains(e.getBlock().getBlockData().getMaterial())){ // If it is a end block
-                    e.getPlayer().sendMessage("Hello there!");
-
                     e.getBlock().getWorld().dropItem(e.getBlock().getLocation(), rewardsList.get(rand.nextInt(rewardsList.size())));
                 return;
                 }
