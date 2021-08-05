@@ -6,6 +6,16 @@ A 1.16.4 Spigot custom item's plugin to be used on Elysium Towny
 
 ## About the plugin
 
+This plugin is created to be the core custom item plugin for Elysium Towny, holding unique items, enchantments, armor pieces and talismans.
+
+I have been developing items in this plugin on and off for the past year when I have time with a large backlog of ideas to come.
+
+The core of the plugin is reflectively simple, and is designed to be 'lightweight' on a minecraft server. However, there are parts 
+of the code that are not fully efficient as I would like yet, that will come later on, as well as making some tasks asynchronously.
+
+One interesting feature of this plugin will be that it will have to prevent the fixing of items (usually done by /fix from Essentials but also normally in an anvil).
+
+![item example gif](./readme_resources/item_example_gif.gif "item example gif")
 
 ## Tools
 
@@ -85,6 +95,6 @@ NOTE : Permissions are not set up yet!
 
 ## To Do
 
-* Set up permissions for each commaned
+* Set up permissions for each command
 * Set up /elysiumitems basic overview command. Show plugin author/plugin version/how many of each item category is loaded.
 * Stop the /fixing/healing/modification of custom items
