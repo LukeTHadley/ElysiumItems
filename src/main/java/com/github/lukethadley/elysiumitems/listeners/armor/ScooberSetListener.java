@@ -4,6 +4,7 @@ import com.github.lukethadley.elysiumitems.items.armor.boots.ScooberBoots;
 import com.github.lukethadley.elysiumitems.items.armor.chestplate.ScooberChestplate;
 import com.github.lukethadley.elysiumitems.items.armor.helmets.ScooberHelmet;
 import com.github.lukethadley.elysiumitems.items.armor.leggings.ScooberLeggings;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -45,12 +46,20 @@ public class ScooberSetListener implements Listener {
                 ItemStack chestplate = player.getInventory().getChestplate();
                 ItemStack leggings = player.getInventory().getLeggings();
                 ItemStack boots = player.getInventory().getBoots();
-                if (helmet != null && helmet.getItemMeta().hasLore() && chestplate != null && chestplate.getItemMeta().hasLore() && leggings != null && leggings.getItemMeta().hasLore() && boots != null && boots.getItemMeta().hasLore()){
-                    if (helmet.getItemMeta().getLore().equals(scooberHelmet.getLoreAsListString()) && chestplate.getItemMeta().getLore().equals(scooberChestplate.getLoreAsListString()) && leggings.getItemMeta().getLore().equals(scooberLeggings.getLoreAsListString()) && boots.getItemMeta().getLore().equals(scooberBoots.getLoreAsListString())){
-                        e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 1));
-                        e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
-                        currentPlayers.add(e.getPlayer().getUniqueId());
-                        return;
+
+
+                if (helmet != null && chestplate != null && leggings != null && boots != null) { // Check items are not null
+                    NBTItem helmetnbti = new NBTItem(helmet);
+                    NBTItem chestplatenbti = new NBTItem(chestplate);
+                    NBTItem leggingsnbti = new NBTItem(leggings);
+                    NBTItem bootsnbti = new NBTItem(boots);
+                    if (helmetnbti.getString("plugin").equals("Elysium-Items") && chestplatenbti.getString("plugin").equals("Elysium-Items") && leggingsnbti.getString("plugin").equals("Elysium-Items") && bootsnbti.getString("plugin").equals("Elysium-Items")) { //Check its got the plugin tag
+                        if (helmetnbti.getString("item").equals(scooberHelmet.getName()) && chestplatenbti.getString("item").equals(scooberChestplate.getName()) && leggingsnbti.getString("item").equals(scooberLeggings.getName()) && bootsnbti.getString("item").equals(scooberBoots.getName())) { //Check its got the plugin tag
+                            e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 1));
+                            e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
+                            currentPlayers.add(e.getPlayer().getUniqueId());
+                            return;
+                        }
                     }
                 }
             }
@@ -66,25 +75,29 @@ public class ScooberSetListener implements Listener {
 
     @EventHandler
     public void removePotion(InventoryClickEvent e){
-        try {
-            Player player = (Player) e.getWhoClicked(); //Get the player
-            ItemStack item = e.getCurrentItem(); //And the item in their hand
-            if (item != null){ //If there is an item in their hand
-                if (item.getItemMeta().hasLore() && item.getItemMeta().getLore() == null){ //And that item does have a lore
-                    return;
-                }
-                List<String> lore = item.getItemMeta().getLore();
-                if (lore != null) { //Check the item has a lore again
-                    if (item.getType() == scooberHelmet.getItemType() || item.getType() == scooberChestplate.getItemType() || item.getType() == scooberLeggings.getItemType() || item.getType() == scooberBoots.getItemType()) {
-                        if (lore.equals(scooberHelmet.getLoreAsListString()) || lore.equals(scooberChestplate.getLoreAsListString()) || lore.equals(scooberLeggings.getLoreAsListString()) || lore.equals(scooberBoots.getLoreAsListString())) {
-                            player.removePotionEffect(PotionEffectType.NIGHT_VISION);
-                            player.removePotionEffect(PotionEffectType.WATER_BREATHING);
-                            currentPlayers.remove(player.getUniqueId());
-                        }
+
+        Player player = (Player) e.getWhoClicked(); //Get the player
+        ItemStack item = e.getCurrentItem(); //And the item in their hand
+        if (item != null){ //If there is an item in their hand
+            ItemStack helmet = player.getInventory().getHelmet();
+            ItemStack chestplate = player.getInventory().getChestplate();
+            ItemStack leggings = player.getInventory().getLeggings();
+            ItemStack boots = player.getInventory().getBoots();
+            if (helmet != null && chestplate != null && leggings != null && boots != null) { // Check items are not null
+                NBTItem helmetnbti = new NBTItem(helmet);
+                NBTItem chestplatenbti = new NBTItem(chestplate);
+                NBTItem leggingsnbti = new NBTItem(leggings);
+                NBTItem bootsnbti = new NBTItem(boots);
+                if (helmetnbti.getString("plugin").equals("Elysium-Items") && chestplatenbti.getString("plugin").equals("Elysium-Items") && leggingsnbti.getString("plugin").equals("Elysium-Items") && bootsnbti.getString("plugin").equals("Elysium-Items")) { //Check its got the plugin tag
+                    if (helmetnbti.getString("item").equals(scooberHelmet.getName()) && chestplatenbti.getString("item").equals(scooberChestplate.getName()) && leggingsnbti.getString("item").equals(scooberLeggings.getName()) && bootsnbti.getString("item").equals(scooberBoots.getName())) { //Check its got the plugin tag
+                        player.removePotionEffect(PotionEffectType.NIGHT_VISION);
+                        player.removePotionEffect(PotionEffectType.WATER_BREATHING);
+                        currentPlayers.remove(player.getUniqueId());
+                        return;
                     }
                 }
             }
-        } catch (NullPointerException ignored){ } // 'item.getItemMeta().hasLore()' has the possibility of returning a null that is hard to parry with an if statement. Try/Catch needed :(
-    }
+        }
+   }
 
 }

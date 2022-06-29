@@ -2,6 +2,7 @@ package com.github.lukethadley.elysiumitems.items.armor.leggings;
 
 import com.github.lukethadley.elysiumitems.items.CustomItem;
 
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -39,6 +40,11 @@ public class ScooberLeggings extends CustomItem {
         meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
 
         itmStk.setItemMeta(meta);
+
+        NBTItem nbti = new NBTItem(itmStk);
+        nbti.setString("plugin", "Elysium-Items");
+        nbti.setString("item", NAME);
+        nbti.applyNBT(itmStk);
 
         return itmStk;
     }
