@@ -4,6 +4,7 @@ import com.github.lukethadley.elysiumitems.items.armor.boots.VoyagerBoots;
 import com.github.lukethadley.elysiumitems.items.armor.chestplate.VoyagerChestplate;
 import com.github.lukethadley.elysiumitems.items.armor.helmets.VoyagerHelmet;
 import com.github.lukethadley.elysiumitems.items.armor.leggings.VoyagerLeggings;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -36,35 +37,42 @@ public class VoyagerSetListener implements Listener {
         ItemStack chestplate = player.getInventory().getChestplate();
         ItemStack leggings = player.getInventory().getLeggings();
         ItemStack boots = player.getInventory().getBoots();
-        if (helmet != null && helmet.getItemMeta().hasLore() && chestplate != null && chestplate.getItemMeta().hasLore() && leggings != null && leggings.getItemMeta().hasLore() && boots != null && boots.getItemMeta().hasLore()){
-            if (helmet.getItemMeta().getLore().equals(voyagerHelmet.getLoreAsListString()) && chestplate.getItemMeta().getLore().equals(voyagerChestplate.getLoreAsListString()) && leggings.getItemMeta().getLore().equals(voyagerLeggings.getLoreAsListString()) && boots.getItemMeta().getLore().equals(voyagerBoots.getLoreAsListString())){
-                player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, Integer.MAX_VALUE, 1));
-                return;
+
+        if (helmet != null && chestplate != null && leggings != null && boots != null) { // Check items are not null
+            NBTItem helmetnbti = new NBTItem(helmet);
+            NBTItem chestplatenbti = new NBTItem(chestplate);
+            NBTItem leggingsnbti = new NBTItem(leggings);
+            NBTItem bootsnbti = new NBTItem(boots);
+            if (helmetnbti.getString("plugin").equals("Elysium-Items") && chestplatenbti.getString("plugin").equals("Elysium-Items") && leggingsnbti.getString("plugin").equals("Elysium-Items") && bootsnbti.getString("plugin").equals("Elysium-Items")) { //Check its got the plugin tag
+                if (helmetnbti.getString("item").equals(voyagerHelmet.getName()) && chestplatenbti.getString("item").equals(voyagerChestplate.getName()) && leggingsnbti.getString("item").equals(voyagerLeggings.getName()) && bootsnbti.getString("item").equals(voyagerBoots.getName())) { //Check its got the plugin tag
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, Integer.MAX_VALUE, 1));
+                }
             }
         }
     }
 
     @EventHandler
     public void removePotion(InventoryClickEvent e){
-        try {
-            Player player = (Player) e.getWhoClicked(); //Get the player
-            ItemStack item = e.getCurrentItem(); //And the item in their hand
-            if (item != null){ //If there is an item in their hand
-                if (item.getItemMeta().hasLore() && item.getItemMeta().getLore() == null){ //And that item does have a lore
-                    return;
-                }
-                List<String> lore = item.getItemMeta().getLore();
-                if (lore != null) { //Check the item has a lore again
-                    if (item.getType() == voyagerHelmet.getItemType() || item.getType() == voyagerChestplate.getItemType() || item.getType() == voyagerLeggings.getItemType() || item.getType() == voyagerBoots.getItemType()) {
-                        if (lore.equals(voyagerHelmet.getLoreAsListString()) || lore.equals(voyagerChestplate.getLoreAsListString()) || lore.equals(voyagerLeggings.getLoreAsListString()) || lore.equals(voyagerBoots.getLoreAsListString())) {
-                            player.removePotionEffect(PotionEffectType.HEALTH_BOOST);
-                        }
+        Player player = (Player) e.getWhoClicked(); //Get the player
+        ItemStack item = e.getCurrentItem(); //And the item in their hand
+        if (item != null) { //If there is an item in their hand
+            ItemStack helmet = player.getInventory().getHelmet();
+            ItemStack chestplate = player.getInventory().getChestplate();
+            ItemStack leggings = player.getInventory().getLeggings();
+            ItemStack boots = player.getInventory().getBoots();
+            if (helmet != null && chestplate != null && leggings != null && boots != null) { // Check items are not null
+
+                NBTItem helmetnbti = new NBTItem(helmet);
+                NBTItem chestplatenbti = new NBTItem(chestplate);
+                NBTItem leggingsnbti = new NBTItem(leggings);
+                NBTItem bootsnbti = new NBTItem(boots);
+                if (helmetnbti.getString("plugin").equals("Elysium-Items") && chestplatenbti.getString("plugin").equals("Elysium-Items") && leggingsnbti.getString("plugin").equals("Elysium-Items") && bootsnbti.getString("plugin").equals("Elysium-Items")) { //Check its got the plugin tag
+                    if (helmetnbti.getString("item").equals(voyagerHelmet.getName()) && chestplatenbti.getString("item").equals(voyagerChestplate.getName()) && leggingsnbti.getString("item").equals(voyagerLeggings.getName()) && bootsnbti.getString("item").equals(voyagerBoots.getName())) { //Check its got the plugin tag
+                        player.removePotionEffect(PotionEffectType.HEALTH_BOOST);
                     }
                 }
-
-
             }
-        } catch (NullPointerException ignored){ } // 'item.getItemMeta().hasLore()' has the possibility of returning a null that is hard to parry with an if statement. Try/Catch needed :(
+        }
     }
 
 }

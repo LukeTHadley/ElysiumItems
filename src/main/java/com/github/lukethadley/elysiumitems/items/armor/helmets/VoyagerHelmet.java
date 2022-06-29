@@ -1,6 +1,7 @@
 package com.github.lukethadley.elysiumitems.items.armor.helmets;
 
 import com.github.lukethadley.elysiumitems.items.CustomItem;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
@@ -33,7 +34,10 @@ public class VoyagerHelmet extends CustomItem {
         meta.addEnchant(Enchantment.OXYGEN, 2, true);
 
         itmStk.setItemMeta(meta);
-
+        NBTItem nbti = new NBTItem(itmStk);
+        nbti.setString("plugin", "Elysium-Items");
+        nbti.setString("item", NAME);
+        nbti.applyNBT(itmStk);
         return itmStk;
     }
 
