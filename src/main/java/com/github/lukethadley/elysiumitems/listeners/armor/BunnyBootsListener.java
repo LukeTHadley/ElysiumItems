@@ -1,6 +1,7 @@
 package com.github.lukethadley.elysiumitems.listeners.armor;
 
 import com.github.lukethadley.elysiumitems.items.armor.boots.BunnyBoots;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -30,21 +31,17 @@ public class BunnyBootsListener implements Listener {
 
         if (event.getSlotType().equals(InventoryType.SlotType.ARMOR)) {
             if (cursor != null && cursor.getType() == bunnyBoots.getItemType()) { //Applying
-                if (cursor.hasItemMeta() && cursor.getItemMeta().hasLore()) {
-                    List<String> lore = cursor.getItemMeta().getLore();
-                    if (lore.equals(bunnyBoots.getLoreAsListString())) {
-                        player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, Integer.MAX_VALUE, 2));
-                        return;
-                    }
+                NBTItem cursornbti = new NBTItem(cursor);
+                if (cursornbti.getString("plugin").equals("Elysium-Items") && cursornbti.getString("item").equals("BunnyBoots")){
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, Integer.MAX_VALUE, 2));
+                    return;
                 }
             }
             else if (item != null && item.getType() == bunnyBoots.getItemType()) { //Removing
-                if (item.hasItemMeta() && item.getItemMeta().hasLore()) {
-                    List<String> lore = item.getItemMeta().getLore();
-                    if (lore.equals(bunnyBoots.getLoreAsListString())) {
-                        player.removePotionEffect(PotionEffectType.JUMP);
-                        return;
-                    }
+                NBTItem itemnbti = new NBTItem(item);
+                if (itemnbti.getString("plugin").equals("Elysium-Items") && itemnbti.getString("item").equals("BunnyBoots")) {
+                    player.removePotionEffect(PotionEffectType.JUMP);
+                    return;
                 }
             }
 
@@ -55,12 +52,20 @@ public class BunnyBootsListener implements Listener {
     public void inventoryClose(InventoryCloseEvent event){
         Player player = (Player) event.getPlayer();
         ItemStack boots = player.getInventory().getBoots();
-        if (boots != null && boots.getItemMeta().hasLore()){
-            if (boots.getItemMeta().getLore().equals(bunnyBoots.getLoreAsListString())){
+        if (boots == null){
+            return;
+        }
+        NBTItem nbti = new NBTItem(boots);
+        String plugin = nbti.getString("plugin");
+        String item = nbti.getString("item");
+        if (plugin.equals("Elysium-Items")) {
+            if (item.equals("EnderBow")) {
                 player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, Integer.MAX_VALUE, 2));
                 return;
             }
         }
+
+
     }
 
 }

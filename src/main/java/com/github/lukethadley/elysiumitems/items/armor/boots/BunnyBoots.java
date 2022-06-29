@@ -1,6 +1,7 @@
 package com.github.lukethadley.elysiumitems.items.armor.boots;
 
 import com.github.lukethadley.elysiumitems.items.CustomItem;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -36,7 +37,10 @@ public class BunnyBoots extends CustomItem {
 
         itmStk.setItemMeta(meta);
 
-
+        NBTItem nbti = new NBTItem(itmStk);
+        nbti.setString("plugin", "Elysium-Items");
+        nbti.setString("item", "BunnyBoots");
+        nbti.applyNBT(itmStk);
         return itmStk;
 
     }
