@@ -33,7 +33,7 @@ public class LuckOfTheOceanListener implements Listener {
             Material.KELP, Material.KELP_PLANT
     );
 
-    private static final List<Biome> BIOME_LIST = Arrays.asList(Biome.WARM_OCEAN, Biome.OCEAN, Biome.DEEP_WARM_OCEAN, Biome.LUKEWARM_OCEAN, Biome.DEEP_LUKEWARM_OCEAN, Biome.DEEP_OCEAN, Biome.FROZEN_OCEAN, Biome.DEEP_FROZEN_OCEAN, Biome.COLD_OCEAN, Biome.DEEP_COLD_OCEAN);
+    private static final List<Biome> BIOME_LIST = Arrays.asList(Biome.WARM_OCEAN, Biome.OCEAN, Biome.LUKEWARM_OCEAN, Biome.DEEP_LUKEWARM_OCEAN, Biome.DEEP_OCEAN, Biome.FROZEN_OCEAN, Biome.DEEP_FROZEN_OCEAN, Biome.COLD_OCEAN, Biome.DEEP_COLD_OCEAN);
 
     private  List<ItemStack> rewardsList;
 

@@ -16,7 +16,6 @@ package com.github.lukethadley.elysiumitems.listeners.tools;
 
 import com.github.lukethadley.elysiumitems.ToolsMessages;
 import com.github.lukethadley.elysiumitems.items.tools.bows.EnderBow;
-import org.apache.commons.lang.ObjectUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;

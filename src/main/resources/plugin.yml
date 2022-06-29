@@ -1,7 +1,7 @@
 name: ElysiumItems
 version: ${project.version}
 main: com.github.lukethadley.elysiumitems.ElysiumItems
-api-version: 1.16
+api-version: 1.19
 authors: [ Thomas9078 ]
 commands:
   elysiumtools:
