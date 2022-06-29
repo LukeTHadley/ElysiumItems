@@ -1,6 +1,7 @@
 package com.github.lukethadley.elysiumitems.items.tools.bows;
 
 import com.github.lukethadley.elysiumitems.items.CustomItem;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -31,8 +32,13 @@ public class EnderBow extends CustomItem {
 
         itmMeta.addEnchant(Enchantment.ARROW_INFINITE, 1, true);
         itmMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-
         itmStk.setItemMeta(itmMeta);
+
+        NBTItem nbti = new NBTItem(itmStk);
+        nbti.setString("plugin", "Elysium-Items");
+        nbti.setString("item", "EnderBow");
+
+        nbti.applyNBT(itmStk);
         return itmStk;
     }
 
