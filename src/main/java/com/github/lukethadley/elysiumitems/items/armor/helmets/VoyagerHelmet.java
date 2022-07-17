@@ -12,12 +12,12 @@ import java.util.Arrays;
 public class VoyagerHelmet extends CustomItem {
 
     private static final String NAME = "VoyagerHelmet";
-    private static final String ITEM_DISPLAY_NAME = "&b&lVoyager Helmet";
+    private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#ffb3ff") + "&lVoyager Helmet";
     private static final String DESCRIPTION = "When worn in the full set, the user will gain 4 extra hearts!";
-    private static final String[] ITEM_LORE = new String[]{"&7When worn in the full set, the", "&7user will gain 4 extra hearts!"};
+    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#ffb3ff") + "My what a big heart you have!", "&7When worn in the full set, the", "&7user will gain 4 extra hearts!"};
 
     public VoyagerHelmet(){
-        super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.DIAMOND_HELMET);
+        super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.CHAINMAIL_HELMET);
     }
 
     @Override
