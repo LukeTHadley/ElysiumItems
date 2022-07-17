@@ -41,7 +41,7 @@ public class CowardsCutlassListener implements Listener {
                     String[] split = line.split("Counter = ");
                     int x = Integer.valueOf(split[1])+1;
 
-                    meta.set(2, ChatColor.GRAY + "Counter = " + x);
+                    meta.set(2, ChatColor.GRAY + "Counter = " + net.md_5.bungee.api.ChatColor.of("#009973") + x);
 
                     itmMeta.setLore(meta);
 
