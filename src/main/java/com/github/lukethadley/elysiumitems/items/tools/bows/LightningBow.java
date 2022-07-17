@@ -11,9 +11,9 @@ import java.util.Arrays;
 public class LightningBow extends CustomItem {
 
     private static final String NAME = "LightningBow";
-    private static final String ITEM_DISPLAY_NAME = ChatColor.AQUA + "" + ChatColor.BOLD + "Lightning Bow";
+    private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#bfff00") + "" + ChatColor.BOLD + "Lightning Bow";
     private static final String DESCRIPTION = "Has a 10% chance of summoning lightning where the arrow lands.";
-    private static final String[] ITEM_LORE = new String[]{ChatColor.GRAY + "Summon Lightning!", ChatColor.GRAY + "Have a 10% chance of summoning", ChatColor.GRAY +  "lightning when the arrow lands!"};
+    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#bfff00") + "Summon Lightning!", ChatColor.GRAY + "Have a 10% chance of summoning", ChatColor.GRAY +  "lightning when the arrow lands!"};
 
     public LightningBow(){
         super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.BOW);
