@@ -1,9 +1,7 @@
 package com.github.lukethadley.elysiumitems.items.tools.swords;
 
-import com.github.lukethadley.elysiumitems.HexColorFactory;
 import com.github.lukethadley.elysiumitems.items.CustomItem;
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
