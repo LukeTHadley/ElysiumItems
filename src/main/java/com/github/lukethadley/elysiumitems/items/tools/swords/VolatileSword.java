@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class VolatileSword extends CustomItem {
 
     public VolatileSword() {
-        super("VolatileSword", "&6&lVolatile Sword", "This item will explode when it breaks!", new String[]{"&7This item will explode when it breaks!"}, Material.GOLDEN_SWORD);
+        super("VolatileSword", net.md_5.bungee.api.ChatColor.of("#669999") + "&lVolatile Sword", "This item will explode when it breaks!", new String[]{net.md_5.bungee.api.ChatColor.of("#669999") + "It was good while it lasted...", "&7This item will explode when it breaks!"}, Material.IRON_SWORD);
     }
 
     @Override
@@ -24,7 +24,7 @@ public class VolatileSword extends CustomItem {
         itmMeta.setLore(Arrays.asList(getLore()));
 
 
-        itmMeta.addEnchant(Enchantment.LOOT_BONUS_MOBS, 10, true);
+        itmMeta.addEnchant(Enchantment.LOOT_BONUS_MOBS, 8, true);
 
         itmStk.setItemMeta(itmMeta);
 

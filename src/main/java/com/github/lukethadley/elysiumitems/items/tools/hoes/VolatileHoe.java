@@ -11,12 +11,12 @@ import java.util.Arrays;
 public class VolatileHoe extends CustomItem {
 
     private static final String NAME = "VolatileHoe";
-    private static final String ITEM_DISPLAY_NAME = "&6&lVolatile Hoe";
+    private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#669999") + "&lVolatile Hoe";
     private static final String DESCRIPTION = "This item will explode when it breaks!";
-    private static final String[] ITEM_LORE = new String[]{"&7This item will explode when it breaks!"};
+    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#669999") + "It was good while it lasted...", "&7This item will explode when it breaks!"};
 
     public VolatileHoe(){
-        super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.GOLDEN_HOE);
+        super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.IRON_HOE);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class VolatileHoe extends CustomItem {
         itmMeta.setLore(Arrays.asList(getLore()));
 
 
-        itmMeta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 10, true);
+        itmMeta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 8, true);
 
         itmStk.setItemMeta(itmMeta);
 
