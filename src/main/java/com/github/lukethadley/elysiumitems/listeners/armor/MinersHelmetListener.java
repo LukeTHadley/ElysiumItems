@@ -1,6 +1,7 @@
 package com.github.lukethadley.elysiumitems.listeners.armor;
 
 import com.github.lukethadley.elysiumitems.items.armor.helmets.MinersHelmet;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -30,21 +31,19 @@ public class MinersHelmetListener implements Listener {
 
         if (event.getSlotType().equals(InventoryType.SlotType.ARMOR)) {
             if (cursor != null && cursor.getType() == minersHelmet.getItemType()) { //Applying
-                if (cursor.hasItemMeta() && cursor.getItemMeta().hasLore()) {
-                    List<String> lore = cursor.getItemMeta().getLore();
-                    if (lore.equals(minersHelmet.getLoreAsListString())) {
-                        player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0));
-                        return;
-                    }
+                NBTItem cursornbti = new NBTItem(cursor);
+                if (cursornbti.getString("plugin").equals("Elysium-Items") && cursornbti.getString("item").equals("MinersHelmet")) {
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0));
+                    return;
                 }
+
+
             }
             else if (item != null && item.getType() == minersHelmet.getItemType()) { //Removing
-                if (item.hasItemMeta() && item.getItemMeta().hasLore()) {
-                    List<String> lore = item.getItemMeta().getLore();
-                    if (lore.equals(minersHelmet.getLoreAsListString())) {
-                        player.removePotionEffect(PotionEffectType.FAST_DIGGING);
-                        return;
-                    }
+                NBTItem itemnbti = new NBTItem(item);
+                if (itemnbti.getString("plugin").equals("Elysium-Items") && itemnbti.getString("item").equals("MinersHelmet")) {
+                    player.removePotionEffect(PotionEffectType.FAST_DIGGING);
+                    return;
                 }
             }
 
