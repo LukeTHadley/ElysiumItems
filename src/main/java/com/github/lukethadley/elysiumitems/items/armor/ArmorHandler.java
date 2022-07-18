@@ -3,6 +3,7 @@ package com.github.lukethadley.elysiumitems.items.armor;
 import com.github.lukethadley.elysiumitems.items.CustomItem;
 import com.github.lukethadley.elysiumitems.items.armor.boots.BunnyBoots;
 import com.github.lukethadley.elysiumitems.items.armor.boots.ScooberBoots;
+import com.github.lukethadley.elysiumitems.items.armor.boots.SlimeSlippers;
 import com.github.lukethadley.elysiumitems.items.armor.boots.VoyagerBoots;
 import com.github.lukethadley.elysiumitems.items.armor.chestplate.ScooberChestplate;
 import com.github.lukethadley.elysiumitems.items.armor.chestplate.VoyagerChestplate;
@@ -28,6 +29,8 @@ public class ArmorHandler {
         //Boots
         BunnyBoots bunnyBoots = new BunnyBoots();
         customItems.put(bunnyBoots.getName(), bunnyBoots);
+        SlimeSlippers slimeSlippers = new SlimeSlippers();
+        customItems.put(slimeSlippers.getName(), slimeSlippers);
 
         //Helmets
         MinersHelmet minersHelmet = new MinersHelmet();
