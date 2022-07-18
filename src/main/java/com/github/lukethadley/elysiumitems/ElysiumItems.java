@@ -32,6 +32,7 @@ public final class ElysiumItems extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new VoyagerSetListener(), this);
         getServer().getPluginManager().registerEvents(new ScooberSetListener(), this);
         getServer().getPluginManager().registerEvents(new InfernoSetListener(), this);
+        getServer().getPluginManager().registerEvents(new PantsOfUnChafingListener(), this);
 
         getServer().getPluginManager().registerEvents(new WorkbenchListener(), this);
 

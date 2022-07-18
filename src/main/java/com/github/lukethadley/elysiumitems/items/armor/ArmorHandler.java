@@ -10,6 +10,7 @@ import com.github.lukethadley.elysiumitems.items.armor.helmets.MinersHelmet;
 import com.github.lukethadley.elysiumitems.items.armor.helmets.ScooberHelmet;
 import com.github.lukethadley.elysiumitems.items.armor.helmets.VoyagerHelmet;
 import com.github.lukethadley.elysiumitems.items.armor.leggings.InfernoLeggings;
+import com.github.lukethadley.elysiumitems.items.armor.leggings.PantsofUnChafing;
 import com.github.lukethadley.elysiumitems.items.armor.leggings.ScooberLeggings;
 import com.github.lukethadley.elysiumitems.items.armor.leggings.VoyagerLeggings;
 
@@ -35,6 +36,10 @@ public class ArmorHandler {
         //Helmets
         MinersHelmet minersHelmet = new MinersHelmet();
         customItems.put(minersHelmet.getName(), minersHelmet);
+
+        //Leggings
+        PantsofUnChafing pantsofUnChafing = new PantsofUnChafing();
+        customItems.put(pantsofUnChafing.getName(), pantsofUnChafing);
 
         //Voyager Set
         VoyagerHelmet voyagerHelmet = new VoyagerHelmet();
