@@ -29,7 +29,6 @@ public class VoyagerBoots extends CustomItem {
         meta.setDisplayName(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', getItemName()));
         meta.setLore(Arrays.asList(getLore()));
 
-        meta.setUnbreakable(true);
         meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
         meta.addEnchant(Enchantment.PROTECTION_FALL, 3, true);
 
