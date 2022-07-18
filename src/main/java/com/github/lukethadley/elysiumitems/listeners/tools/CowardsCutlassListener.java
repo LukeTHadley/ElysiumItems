@@ -1,6 +1,7 @@
 package com.github.lukethadley.elysiumitems.listeners.tools;
 
 import com.github.lukethadley.elysiumitems.items.tools.swords.CowardsCutlassSword;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -25,30 +26,31 @@ public class CowardsCutlassListener implements Listener {
         if (e.getEntity() instanceof Player) { //If the entity that was damaged is a player
             if (e.getDamager() instanceof Player) { //And the entity that damaged that player is a player
                 Player damager = (Player) e.getDamager();
-                Player damagee = (Player) e.getEntity();
+                //Player damagee = (Player) e.getEntity();
 
                 ItemStack tool = damager.getInventory().getItemInMainHand();
-                if (tool == null || tool.getItemMeta().getLore() == null) {
-                    return;
-                }
 
-                if (tool.getItemMeta().getLore().get(0).equals(cowardsCutlassSword.getLoreAsListString().get(0)) && tool.getItemMeta().getLore().get(1).equals(cowardsCutlassSword.getLoreAsListString().get(1))) {
+                NBTItem nbti = new NBTItem(tool);
 
-                    ItemMeta itmMeta = tool.getItemMeta();
-                    List<String> meta = itmMeta.getLore();
-                    String line = meta.get(2);
+                String plugin = nbti.getString("plugin");
+                String item = nbti.getString("item");
+                if (plugin.equals("Elysium-Items")) {
+                    if (item.equals("CowardsCutlass")) {
+                        ItemMeta itmMeta = tool.getItemMeta();
+                        List<String> meta = itmMeta.getLore();
+                        String line = meta.get(2);
 
-                    String[] split = line.split("Counter = ");
-                    int x = Integer.valueOf(split[1])+1;
+                        String[] split = line.split("Counter = ");
+                        int x = Integer.valueOf(split[1]) + 1;
 
-                    meta.set(2, ChatColor.GRAY + "Counter = " + net.md_5.bungee.api.ChatColor.of("#009973") + x);
+                        meta.set(2, ChatColor.GRAY + "Counter = " + net.md_5.bungee.api.ChatColor.of("#009973") + x);
 
-                    itmMeta.setLore(meta);
+                        itmMeta.setLore(meta);
 
-                    tool.setItemMeta(itmMeta);
+                        tool.setItemMeta(itmMeta);
 
-                    damager.getInventory().setItemInMainHand(tool);
-
+                        damager.getInventory().setItemInMainHand(tool);
+                    }
 
                 }
             }

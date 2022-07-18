@@ -1,6 +1,7 @@
 package com.github.lukethadley.elysiumitems.items.tools.swords;
 
 import com.github.lukethadley.elysiumitems.items.CustomItem;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -11,7 +12,7 @@ import java.util.Arrays;
 
 public class CowardsCutlassSword extends CustomItem {
 
-    private static final String NAME = "CowardsCuttlas";
+    private static final String NAME = "CowardsCutlass";
     private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#009973") + "" + ChatColor.BOLD + "Cowards Cuttlas";
     private static final String DESCRIPTION = "Sword with knockback 8";
     private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#009973") + "YEEEEEEEEET!","&7This sword will count the number", "&7of players it has cast aside!", "&7Counter = " + net.md_5.bungee.api.ChatColor.of("#009973") + "0"};
@@ -34,6 +35,12 @@ public class CowardsCutlassSword extends CustomItem {
 
 
         itmStk.setItemMeta(itmMeta);
+
+        NBTItem nbti = new NBTItem(itmStk);
+        nbti.setString("plugin", "Elysium-Items");
+        nbti.setString("item", NAME);
+
+        nbti.applyNBT(itmStk);
         return itmStk;
     }
 
