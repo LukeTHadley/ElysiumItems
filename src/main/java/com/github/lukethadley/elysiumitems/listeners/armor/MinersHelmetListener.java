@@ -54,12 +54,21 @@ public class MinersHelmetListener implements Listener {
     public void inventoryClose(InventoryCloseEvent event){
         Player player = (Player) event.getPlayer();
         ItemStack helmet = player.getInventory().getHelmet();
-        if (helmet != null && helmet.getItemMeta().hasLore()){
-            if (helmet.getItemMeta().getLore().equals(minersHelmet.getLoreAsListString())){
+        if (helmet == null){
+            return;
+        }
+        NBTItem nbti = new NBTItem(helmet);
+        String plugin = nbti.getString("plugin");
+        String item = nbti.getString("item");
+        if (plugin.equals("Elysium-Items")) {
+            if (item.equals("MinersHelmet")) {
                 player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0));
                 return;
             }
         }
+
+
     }
 
 }
+
