@@ -27,6 +27,7 @@ public final class ElysiumItems extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new LuckOfTheOceanListener(), this);
         getServer().getPluginManager().registerEvents(new CowardsCutlassListener(), this);
         getServer().getPluginManager().registerEvents(new CodFatherListener(), this);
+        getServer().getPluginManager().registerEvents(new SpiderScytheListener(), this);
 
         getServer().getPluginManager().registerEvents(new BunnyBootsListener(), this);
         getServer().getPluginManager().registerEvents(new MinersHelmetListener(), this);

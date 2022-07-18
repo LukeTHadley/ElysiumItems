@@ -4,11 +4,9 @@ import com.github.lukethadley.elysiumitems.items.CustomItem;
 import com.github.lukethadley.elysiumitems.items.tools.axes.VolatileAxe;
 import com.github.lukethadley.elysiumitems.items.tools.bows.LightningBow;
 import com.github.lukethadley.elysiumitems.items.tools.fishingrods.CodFatherRod;
+import com.github.lukethadley.elysiumitems.items.tools.hoes.SpiderScythe;
 import com.github.lukethadley.elysiumitems.items.tools.hoes.VolatileHoe;
-import com.github.lukethadley.elysiumitems.items.tools.pickaxes.LuckOfTheEndPickaxe;
-import com.github.lukethadley.elysiumitems.items.tools.pickaxes.LuckOfTheNetherPickaxe;
-import com.github.lukethadley.elysiumitems.items.tools.pickaxes.LuckOfTheOceanPickaxe;
-import com.github.lukethadley.elysiumitems.items.tools.pickaxes.VolatilePickaxe;
+import com.github.lukethadley.elysiumitems.items.tools.pickaxes.*;
 import com.github.lukethadley.elysiumitems.items.tools.shovels.VolatileShovel;
 import com.github.lukethadley.elysiumitems.items.tools.swords.CowardsCutlassSword;
 import com.github.lukethadley.elysiumitems.items.tools.swords.DemonicSword;
@@ -16,6 +14,7 @@ import com.github.lukethadley.elysiumitems.items.tools.swords.VolatileSword;
 import com.github.lukethadley.elysiumitems.items.tools.bows.EnderBow;
 import com.github.lukethadley.elysiumitems.items.tools.bows.ShotgunBow;
 import com.github.lukethadley.elysiumitems.listeners.tools.CodFatherListener;
+import org.bukkit.entity.Explosive;
 
 import java.util.HashMap;
 
@@ -30,7 +29,6 @@ public class ToolsHandler {
 
     private void addItemsToMap(){
         //Swords
-
         DemonicSword demonicSword = new DemonicSword();
         customItems.put(demonicSword.getName(), demonicSword);
         CowardsCutlassSword cowardsCutlassSword = new CowardsCutlassSword();
@@ -55,6 +53,10 @@ public class ToolsHandler {
         //Fishing Rods
         CodFatherRod codFatherRod = new CodFatherRod();
         customItems.put(codFatherRod.getName(), codFatherRod);
+
+        //Hoes
+        SpiderScythe spiderScythe = new SpiderScythe();
+        customItems.put(spiderScythe.getName(), spiderScythe);
 
         //Volatile Items
         VolatileSword volatileSword = new VolatileSword();
