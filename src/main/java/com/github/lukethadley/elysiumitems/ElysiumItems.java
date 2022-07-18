@@ -1,5 +1,6 @@
 package com.github.lukethadley.elysiumitems;
 
+import com.github.lukethadley.elysiumitems.listeners.WorkbenchListener;
 import com.github.lukethadley.elysiumitems.listeners.armor.*;
 import com.github.lukethadley.elysiumitems.listeners.tools.*;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -31,6 +32,8 @@ public final class ElysiumItems extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new VoyagerSetListener(), this);
         getServer().getPluginManager().registerEvents(new ScooberSetListener(), this);
         getServer().getPluginManager().registerEvents(new InfernoSetListener(), this);
+
+        getServer().getPluginManager().registerEvents(new WorkbenchListener(), this);
 
         getLogger().info("Finished Loading Elysium Items");
     }
