@@ -3,6 +3,7 @@ package com.github.lukethadley.elysiumitems.items.tools;
 import com.github.lukethadley.elysiumitems.items.CustomItem;
 import com.github.lukethadley.elysiumitems.items.tools.axes.VolatileAxe;
 import com.github.lukethadley.elysiumitems.items.tools.bows.LightningBow;
+import com.github.lukethadley.elysiumitems.items.tools.fishingrods.CodFatherRod;
 import com.github.lukethadley.elysiumitems.items.tools.hoes.VolatileHoe;
 import com.github.lukethadley.elysiumitems.items.tools.pickaxes.LuckOfTheEndPickaxe;
 import com.github.lukethadley.elysiumitems.items.tools.pickaxes.LuckOfTheNetherPickaxe;
@@ -14,6 +15,7 @@ import com.github.lukethadley.elysiumitems.items.tools.swords.DemonicSword;
 import com.github.lukethadley.elysiumitems.items.tools.swords.VolatileSword;
 import com.github.lukethadley.elysiumitems.items.tools.bows.EnderBow;
 import com.github.lukethadley.elysiumitems.items.tools.bows.ShotgunBow;
+import com.github.lukethadley.elysiumitems.listeners.tools.CodFatherListener;
 
 import java.util.HashMap;
 
@@ -49,6 +51,10 @@ public class ToolsHandler {
         customItems.put(luckOfTheNetherPickaxe.getName(), luckOfTheNetherPickaxe);
         LuckOfTheOceanPickaxe luckOfTheOceanPickaxe = new LuckOfTheOceanPickaxe();
         customItems.put(luckOfTheOceanPickaxe.getName(), luckOfTheOceanPickaxe);
+
+        //Fishing Rods
+        CodFatherRod codFatherRod = new CodFatherRod();
+        customItems.put(codFatherRod.getName(), codFatherRod);
 
         //Volatile Items
         VolatileSword volatileSword = new VolatileSword();
