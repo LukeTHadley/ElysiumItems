@@ -3,6 +3,7 @@ package com.github.lukethadley.elysiumitems.listeners.tools;
 import com.github.lukethadley.elysiumitems.ElysiumItems;
 import com.github.lukethadley.elysiumitems.ToolsMessages;
 import com.github.lukethadley.elysiumitems.items.tools.bows.ShotgunBow;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -42,67 +43,70 @@ public class ShotgunBowListener implements Listener {
         try{
             if (e.getEntity() instanceof Player){
                 Player player = (Player) e.getEntity();
-                List<String> shotgunBowLore = Arrays.asList(shotgunBow.getLore());
-                if (shotgunBowLore == null){
-                    return;
-                }
-
-                if (e.getBow().getItemMeta().getLore().equals(shotgunBowLore)){// Ensure that it is the shotgun bow
 
 
-                    if (!onCooldown(player)){
-                        if(player.getGameMode() != GameMode.CREATIVE){ //If the player is in creative then we can let them fire the bow regardless
+                ItemStack itmStk = e.getBow();
+                NBTItem nbti = new NBTItem(itmStk);
 
-                            if(!player.getInventory().contains(Material.ARROW, 5)){ //Check if the player's inventory doesn't contain 5 arrows
-                                player.sendMessage(ChatColor.translateAlternateColorCodes('&', ToolsMessages.SHOTGUN_BOW_NOT_ENOUGH_ARROWS)); //Send them a message
-                                e.setConsumeItem(false);
-                                e.setCancelled(true); //Cancel the event so an arrow isn't shot
-                                return;
+                String plugin = nbti.getString("plugin");
+                String item = nbti.getString("item");
+                if (plugin.equals("Elysium-Items")) {
+                    if (item.equals("ShotgunBow")) {
+
+
+                        if (!onCooldown(player)) {
+                            if (player.getGameMode() != GameMode.CREATIVE) { //If the player is in creative then we can let them fire the bow regardless
+
+                                if (!player.getInventory().contains(Material.ARROW, 5)) { //Check if the player's inventory doesn't contain 5 arrows
+                                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', ToolsMessages.SHOTGUN_BOW_NOT_ENOUGH_ARROWS)); //Send them a message
+                                    e.setConsumeItem(false);
+                                    e.setCancelled(true); //Cancel the event so an arrow isn't shot
+                                    return;
+                                } else {
+                                    ItemStack arrows = new ItemStack(Material.ARROW, 5); //Create an ItemStack of 1 ender pearl
+                                    player.getInventory().removeItem(arrows); //Use the created ItemStack to remove 1 ender pearl from the player's inventory
+                                }
                             }
-                            else{
-                                ItemStack arrows = new ItemStack(Material.ARROW, 5); //Create an ItemStack of 1 ender pearl
-                                player.getInventory().removeItem(arrows); //Use the created ItemStack to remove 1 ender pearl from the player's inventory
-                            }
+
+
+                            player.sendMessage(ChatColor.translateAlternateColorCodes('&', ToolsMessages.SHOTGUN_BOW_USE_MESSAGE));
+
+
+                            Entity arrow = e.getProjectile();
+                            Vector velocity = arrow.getVelocity();
+
+
+                            Vector v1 = new Vector(velocity.getX(), velocity.getY(), velocity.getZ());
+
+                            Vector v2 = new Vector(velocity.getX(), velocity.getY() - (Math.random() * (LOWER_BOUND - UPPER_BOUND)) + UPPER_BOUND, velocity.getZ() - (Math.random() * (LOWER_BOUND - UPPER_BOUND)) + UPPER_BOUND);
+                            Vector v3 = new Vector(velocity.getX(), velocity.getY() + (Math.random() * (LOWER_BOUND - UPPER_BOUND)) + UPPER_BOUND, velocity.getZ() + (Math.random() * (LOWER_BOUND - UPPER_BOUND)) + UPPER_BOUND);
+                            Vector v4 = new Vector(velocity.getX() - (Math.random() * (LOWER_BOUND - UPPER_BOUND)) + UPPER_BOUND, velocity.getY(), velocity.getZ());
+                            Vector v5 = new Vector(velocity.getX() + (Math.random() * (LOWER_BOUND - UPPER_BOUND)) + UPPER_BOUND, velocity.getY(), velocity.getZ());
+
+                            Arrow arrow1 = player.launchProjectile(Arrow.class, v1);
+                            arrow1.setShooter(player);
+
+                            Arrow arrow2 = player.launchProjectile(Arrow.class, v2);
+                            arrow2.setShooter(player);
+
+                            Arrow arrow3 = player.launchProjectile(Arrow.class, v3);
+                            arrow3.setShooter(player);
+
+                            Arrow arrow4 = player.launchProjectile(Arrow.class, v4);
+                            arrow4.setShooter(player);
+
+                            Arrow arrow5 = player.launchProjectile(Arrow.class, v5);
+                            arrow5.setShooter(player);
+
+
+                            arrow.remove();
+                            return;
+
+
                         }
-
-
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&',ToolsMessages.SHOTGUN_BOW_USE_MESSAGE));
-
-
-                        Entity arrow = e.getProjectile();
-                        Vector velocity = arrow.getVelocity();
-
-
-                        Vector v1 = new Vector(velocity.getX(), velocity.getY(), velocity.getZ());
-
-                        Vector v2 = new Vector(velocity.getX(), velocity.getY() - (Math.random() * (LOWER_BOUND - UPPER_BOUND)) + UPPER_BOUND, velocity.getZ() - (Math.random() * (LOWER_BOUND - UPPER_BOUND)) + UPPER_BOUND);
-                        Vector v3 = new Vector(velocity.getX(), velocity.getY() + (Math.random() * (LOWER_BOUND - UPPER_BOUND)) + UPPER_BOUND, velocity.getZ() + (Math.random() * (LOWER_BOUND - UPPER_BOUND)) + UPPER_BOUND);
-                        Vector v4 = new Vector(velocity.getX() - (Math.random() * (LOWER_BOUND - UPPER_BOUND)) + UPPER_BOUND, velocity.getY(), velocity.getZ());
-                        Vector v5 = new Vector(velocity.getX() + (Math.random() * (LOWER_BOUND - UPPER_BOUND)) + UPPER_BOUND, velocity.getY(), velocity.getZ());
-
-                        Arrow arrow1 = player.launchProjectile(Arrow.class, v1);
-                        arrow1.setShooter(player);
-
-                        Arrow arrow2 = player.launchProjectile(Arrow.class, v2);
-                        arrow2.setShooter(player);
-
-                        Arrow arrow3 = player.launchProjectile(Arrow.class, v3);
-                        arrow3.setShooter(player);
-
-                        Arrow arrow4 = player.launchProjectile(Arrow.class, v4);
-                        arrow4.setShooter(player);
-
-                        Arrow arrow5 = player.launchProjectile(Arrow.class, v5);
-                        arrow5.setShooter(player);
-
-
-                        arrow.remove();
-                        return;
-
+                        e.setCancelled(true);
 
                     }
-                    e.setCancelled(true);
-
                 }
                 return;
             }
