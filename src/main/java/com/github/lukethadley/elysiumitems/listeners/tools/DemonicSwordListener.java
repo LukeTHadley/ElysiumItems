@@ -3,6 +3,7 @@ package com.github.lukethadley.elysiumitems.listeners.tools;
 import com.github.lukethadley.elysiumitems.ElysiumItems;
 import com.github.lukethadley.elysiumitems.ToolsMessages;
 import com.github.lukethadley.elysiumitems.items.tools.swords.DemonicSword;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -36,22 +37,24 @@ public class DemonicSwordListener implements Listener {
                 Player damagee = (Player) e.getEntity();
 
                 ItemStack tool = damager.getInventory().getItemInMainHand();
-                if (tool == null || tool.getItemMeta().getLore() == null){
-                    return;
-                }
+                NBTItem nbti = new NBTItem(tool);
 
-                if (damager.getInventory().getItemInMainHand().getItemMeta().getLore().equals(Arrays.asList(demonicSword.getLore()))){
+                String plugintag = nbti.getString("plugin");
+                String item = nbti.getString("item");
+                if (plugintag.equals("Elysium-Items")) {
+                    if (item.equals("DemonicSword")) {
 
-                    if (Math.random() < 0.2){
-                        if (!onCooldown(damager)){
-                            damagee.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 200, 0));
-                            plugin.getLogger().info(damager.getName() + " inflicted Wither Effect with their Demonic Sword on " + damagee.getName() + ". Cooldown for 30 seconds.");
-                            damager.sendMessage(ChatColor.translateAlternateColorCodes('&', ToolsMessages.getDemonicSwordDamagerMessage(damager.getDisplayName())));
-                            damagee.sendMessage(ChatColor.translateAlternateColorCodes('&', ToolsMessages.getDemonicSwordDamageeMessage(damagee.getDisplayName())));
-                            return;
+                        if (Math.random() < 0.2) {
+                            if (!onCooldown(damager)) {
+                                damagee.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 200, 0));
+                                plugin.getLogger().info(damager.getName() + " inflicted Wither Effect with their Demonic Sword on " + damagee.getName() + ". Cooldown for 30 seconds.");
+                                damager.sendMessage(ChatColor.translateAlternateColorCodes('&', ToolsMessages.getDemonicSwordDamagerMessage(damager.getDisplayName())));
+                                damagee.sendMessage(ChatColor.translateAlternateColorCodes('&', ToolsMessages.getDemonicSwordDamageeMessage(damagee.getDisplayName())));
+                                return;
+                            }
                         }
+                        return;
                     }
-                    return;
                 }
             }
         }
