@@ -15,7 +15,7 @@ public class VolatileAxe extends CustomItem {
     private static final String NAME = "VolatileAxe";
     private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#669999") + "&lVolatile Axe";
     private static final String DESCRIPTION = "This item will explode when it breaks!";
-    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#669999") + "It was good while it lasted...", "&7This item will explode when it breaks!"};
+    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#669999") + "It was good while it lasted...", "&cWARNING: &fThis item will explode and", "&fcause you damage when it break!"};
 
     public VolatileAxe(){
         super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.IRON_AXE);
