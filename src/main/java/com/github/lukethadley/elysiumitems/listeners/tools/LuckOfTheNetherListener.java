@@ -1,6 +1,7 @@
 package com.github.lukethadley.elysiumitems.listeners.tools;
 
 import com.github.lukethadley.elysiumitems.items.tools.pickaxes.LuckOfTheNetherPickaxe;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.enchantments.Enchantment;
@@ -135,14 +136,16 @@ public class LuckOfTheNetherListener implements Listener {
     public void luckyNetherListener(BlockBreakEvent e){
         if (e.getBlock().getWorld().getEnvironment() == World.Environment.NETHER){ //If the player is in the nether
             ItemStack tool = e.getPlayer().getInventory().getItemInMainHand();
-            if (tool == null || tool.getItemMeta().getLore() == null){
-                return;
-            }
-            if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore().equals(luckOfTheNetherPickaxe.getLoreAsListString())){
-                if (MATERIAL_LIST.contains(e.getBlock().getBlockData().getMaterial())){ // If it is a end block
+            NBTItem nbti = new NBTItem(tool);
+            String plugin = nbti.getString("plugin");
+            String item = nbti.getString("item");
+            if (plugin.equals("Elysium-Items")) {
+                if (item.equals("LuckOfTheNetherPickaxe")) {
+                    if (MATERIAL_LIST.contains(e.getBlock().getBlockData().getMaterial())){ // If it is a end block
 
-                    e.getBlock().getWorld().dropItem(e.getBlock().getLocation(), rewardsList.get(rand.nextInt(rewardsList.size())));
-                    return;
+                        e.getBlock().getWorld().dropItem(e.getBlock().getLocation(), rewardsList.get(rand.nextInt(rewardsList.size())));
+                        return;
+                    }
                 }
             }
         }
