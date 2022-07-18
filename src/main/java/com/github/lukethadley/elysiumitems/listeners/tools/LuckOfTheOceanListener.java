@@ -1,6 +1,7 @@
 package com.github.lukethadley.elysiumitems.listeners.tools;
 
 import com.github.lukethadley.elysiumitems.items.tools.pickaxes.LuckOfTheOceanPickaxe;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Biome;
@@ -133,22 +134,25 @@ public class LuckOfTheOceanListener implements Listener {
     }
 
     @EventHandler
-    public void luckyEndListener(BlockBreakEvent e){
+    public void luckyEndListener(BlockBreakEvent e) {
         ItemStack tool = e.getPlayer().getInventory().getItemInMainHand();
-        if (tool == null || tool.getItemMeta().getLore() == null){
-            return;
-        }
-        if (e.getBlock().getWorld().getEnvironment() == World.Environment.NORMAL){ //If the player is in the end
-            if (BIOME_LIST.contains(e.getBlock().getWorld().getBlockAt(e.getBlock().getLocation()).getBiome())){
-                if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore().equals(luckOfTheOceanPickaxe.getLoreAsListString())){
-                    if (MATERIAL_LIST.contains(e.getBlock().getBlockData().getMaterial())){ // If it is a end block
-                        e.getBlock().getWorld().dropItem(e.getBlock().getLocation(), rewardsList.get(rand.nextInt(rewardsList.size())));
-                        return;
+        NBTItem nbti = new NBTItem(tool);
+
+        String plugin = nbti.getString("plugin");
+        String item = nbti.getString("item");
+        if (plugin.equals("Elysium-Items")) {
+            if (item.equals("LuckOfTheOceanPickaxe")) {
+                if (e.getBlock().getWorld().getEnvironment() == World.Environment.NORMAL) { //If the player is in the end
+                    if (BIOME_LIST.contains(e.getBlock().getWorld().getBlockAt(e.getBlock().getLocation()).getBiome())) {
+                        if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore().equals(luckOfTheOceanPickaxe.getLoreAsListString())) {
+                            if (MATERIAL_LIST.contains(e.getBlock().getBlockData().getMaterial())) { // If it is a end block
+                                e.getBlock().getWorld().dropItem(e.getBlock().getLocation(), rewardsList.get(rand.nextInt(rewardsList.size())));
+                            }
+                        }
                     }
                 }
             }
         }
-        return;
     }
 
 }

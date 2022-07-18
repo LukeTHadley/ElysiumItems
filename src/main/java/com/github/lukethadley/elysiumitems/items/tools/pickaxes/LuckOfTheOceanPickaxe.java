@@ -1,6 +1,7 @@
 package com.github.lukethadley.elysiumitems.items.tools.pickaxes;
 
 import com.github.lukethadley.elysiumitems.items.CustomItem;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -12,7 +13,7 @@ import java.util.Arrays;
 public class LuckOfTheOceanPickaxe extends CustomItem {
 
     private static final String NAME = "LuckOfTheOceanPickaxe";
-    private static final String ITEM_DISPLAY_NAME = "&9&lLuck Of The Ocean Pickaxe";
+    private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#80bfff") + "&lLuck Of The Ocean Pickaxe";
     private static final String DESCRIPTION = "This pickaxe will drop extra loot while mining Ocean materials in Ocean biomes!";
     private static final String[] ITEM_LORE = new String[]{"&7This pickaxe will drop", "&7extra loot while mining", "&7Ocean blocks Ocean Biomes!"};
 
@@ -32,6 +33,12 @@ public class LuckOfTheOceanPickaxe extends CustomItem {
         itmMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         itmStk.setItemMeta(itmMeta);
+
+        NBTItem nbti = new NBTItem(itmStk);
+        nbti.setString("plugin", "Elysium-Items");
+        nbti.setString("item", NAME);
+
+        nbti.applyNBT(itmStk);
 
         return itmStk;
     }
