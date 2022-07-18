@@ -1,6 +1,7 @@
 package com.github.lukethadley.elysiumitems.items.tools.swords;
 
 import com.github.lukethadley.elysiumitems.items.CustomItem;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -27,6 +28,12 @@ public class VolatileSword extends CustomItem {
         itmMeta.addEnchant(Enchantment.LOOT_BONUS_MOBS, 8, true);
 
         itmStk.setItemMeta(itmMeta);
+
+        NBTItem nbti = new NBTItem(itmStk);
+        nbti.setString("plugin", "Elysium-Items");
+        nbti.setString("item", "Volatile");
+
+        nbti.applyNBT(itmStk);
 
         itmStk.setDurability((short) (getItemType().getMaxDurability() - 3));
 

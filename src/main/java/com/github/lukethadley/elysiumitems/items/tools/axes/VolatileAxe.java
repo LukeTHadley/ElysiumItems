@@ -2,6 +2,7 @@ package com.github.lukethadley.elysiumitems.items.tools.axes;
 
 import com.github.lukethadley.elysiumitems.items.CustomItem;
 
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
@@ -32,6 +33,12 @@ public class VolatileAxe extends CustomItem {
         itmMeta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 8, true);
 
         itmStk.setItemMeta(itmMeta);
+
+        NBTItem nbti = new NBTItem(itmStk);
+        nbti.setString("plugin", "Elysium-Items");
+        nbti.setString("item", "Volatile");
+
+        nbti.applyNBT(itmStk);
 
         itmStk.setDurability((short) (getItemType().getMaxDurability() - 3));
 

@@ -10,6 +10,7 @@ import com.github.lukethadley.elysiumitems.items.tools.hoes.VolatileHoe;
 import com.github.lukethadley.elysiumitems.items.tools.pickaxes.VolatilePickaxe;
 import com.github.lukethadley.elysiumitems.items.tools.shovels.VolatileShovel;
 import com.github.lukethadley.elysiumitems.items.tools.swords.VolatileSword;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
@@ -20,6 +21,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerItemBreakEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
 
 import java.util.Arrays;
@@ -51,25 +53,28 @@ public class VolatileToolListener implements Listener {
     //Run the firework on item breaking
     @EventHandler
     public void volatileToolExplosion(PlayerItemBreakEvent e){
-        List<String> brokenItemLore = e.getBrokenItem().getItemMeta().getLore();
-        if (brokenItemLore == null){
-            return;
-        }
-        if (brokenItemLore.equals(volatileAxe.getLoreAsListString()) || brokenItemLore.equals(volatileHoe.getLoreAsListString()) || brokenItemLore.equals(volatilePickaxe.getLoreAsListString()) || brokenItemLore.equals(volatileShovel.getLoreAsListString()) || brokenItemLore.equals(volatileSword.getLoreAsListString())){
 
-            Location loc = e.getPlayer().getLocation();
-            loc.setY(loc.getY()+1);
+        final ItemStack itmStk = e.getBrokenItem();
+        final NBTItem nbti = new NBTItem(itmStk);
 
-            Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
-            FireworkMeta fwm = fw.getFireworkMeta();
+        final String plugin = nbti.getString("plugin");
+        final String item = nbti.getString("item");
+        if (plugin.equals("Elysium-Items")){
+            if (item.equals("Volatile")) {
+                Location loc = e.getPlayer().getLocation();
+                loc.setY(loc.getY() + 1);
 
-            fwm.addEffect(FireworkEffect.builder().withColor(COLOR_LIST.get(rand.nextInt(COLOR_LIST.size()))).flicker(true).build());
-            fwm.addEffect(FireworkEffect.builder().withColor(COLOR_LIST.get(rand.nextInt(COLOR_LIST.size()))).trail(true).build());
+                Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
+                FireworkMeta fwm = fw.getFireworkMeta();
 
-            fwm.setLore(VOLATILE_FIREWORK_LORE_TAG);
+                fwm.addEffect(FireworkEffect.builder().withColor(COLOR_LIST.get(rand.nextInt(COLOR_LIST.size()))).flicker(true).build());
+                fwm.addEffect(FireworkEffect.builder().withColor(COLOR_LIST.get(rand.nextInt(COLOR_LIST.size()))).trail(true).build());
 
-            fw.setFireworkMeta(fwm);
-            fw.detonate();
+                fwm.setLore(VOLATILE_FIREWORK_LORE_TAG);
+
+                fw.setFireworkMeta(fwm);
+                fw.detonate();
+            }
         }
         return;
     }
