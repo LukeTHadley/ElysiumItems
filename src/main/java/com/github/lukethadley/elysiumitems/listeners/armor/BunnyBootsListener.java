@@ -59,7 +59,7 @@ public class BunnyBootsListener implements Listener {
         String plugin = nbti.getString("plugin");
         String item = nbti.getString("item");
         if (plugin.equals("Elysium-Items")) {
-            if (item.equals("EnderBow")) {
+            if (item.equals("BunnyBoots")) {
                 player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, Integer.MAX_VALUE, 2));
                 return;
             }
