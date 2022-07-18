@@ -15,12 +15,14 @@ package com.github.lukethadley.elysiumitems.listeners.tools;
 
 import com.github.lukethadley.elysiumitems.items.tools.bows.LightningBow;
 
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +30,7 @@ import java.util.List;
 
 public class LightningBowListener implements Listener {
 
-    LightningBow lightningBow;
+    private final LightningBow lightningBow;
 
     public LightningBowListener(){
         lightningBow = new LightningBow();
@@ -38,14 +40,18 @@ public class LightningBowListener implements Listener {
     public void lightningBowShootEvent(EntityShootBowEvent e){
         try{
             if (e.getEntity() instanceof Player){ //Make sure the entity shooting this is a player
-                List<String> lightningBowLore = Arrays.asList(lightningBow.getLore());
-                if (e.getBow().getItemMeta().getLore().equals(lightningBowLore)){ // Ensure that it is the lightningbow
-                    e.getProjectile().setCustomName("LightningBowArrow"); //Set a custom name for the arrow (ONLY WHILE IT IS IN FLIGHT!!!) I LOVE THIS FEATURE
+                final ItemStack itmStk = e.getBow();
+                final NBTItem nbti = new NBTItem(itmStk);
+                final String plugin = nbti.getString("plugin");
+                final String item = nbti.getString("item");
+                if (plugin.equals("Elysium-Items")) {
+                    if (item.equals("LightningBow")) {
+                           e.getProjectile().setCustomName("LightningBowArrow"); //Set a custom name for the arrow (ONLY WHILE IT IS IN FLIGHT!!!) I LOVE THIS FEATURE
+                    }
                 }
             }
         }
-         catch (NullPointerException exception){
-         }
+        catch (NullPointerException exception){ }
     }
 
     @EventHandler
@@ -58,8 +64,7 @@ public class LightningBowListener implements Listener {
                     }
                 }
             }
-        } catch (NullPointerException exception){
-        }
+        } catch (NullPointerException exception){ }
     }
 
 }
