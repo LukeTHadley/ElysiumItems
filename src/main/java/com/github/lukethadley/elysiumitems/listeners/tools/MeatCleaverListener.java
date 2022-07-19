@@ -30,9 +30,7 @@ public class MeatCleaverListener implements Listener {
                 String item = nbti.getString("item");
                 if (plugin.equals("Elysium-Items")) {
                     if (item.equals("MeatCleaver")) {
-                        Spider spider = (Spider) event.getEntity();
                         event.setDamage(((Animals) event.getEntity()).getHealth());
-
                     }
                 }
             }
