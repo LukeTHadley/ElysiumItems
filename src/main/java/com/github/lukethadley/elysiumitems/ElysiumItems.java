@@ -30,6 +30,8 @@ public final class ElysiumItems extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new SpiderScytheListener(), this);
         getServer().getPluginManager().registerEvents(new CruciblePickaxeListener(), this);
         getServer().getPluginManager().registerEvents(new FurnaceShovelListener(), this);
+        getServer().getPluginManager().registerEvents(new MeatCleaverListener(), this);
+        getServer().getPluginManager().registerEvents(new MagnetPickaxeListener(), this);
 
         getServer().getPluginManager().registerEvents(new BunnyBootsListener(), this);
         getServer().getPluginManager().registerEvents(new MinersHelmetListener(), this);

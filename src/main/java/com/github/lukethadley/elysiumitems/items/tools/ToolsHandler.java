@@ -1,6 +1,7 @@
 package com.github.lukethadley.elysiumitems.items.tools;
 
 import com.github.lukethadley.elysiumitems.items.CustomItem;
+import com.github.lukethadley.elysiumitems.items.tools.axes.MeatCleaver;
 import com.github.lukethadley.elysiumitems.items.tools.axes.VolatileAxe;
 import com.github.lukethadley.elysiumitems.items.tools.bows.LightningBow;
 import com.github.lukethadley.elysiumitems.items.tools.fishingrods.CodFatherRod;
@@ -14,8 +15,6 @@ import com.github.lukethadley.elysiumitems.items.tools.swords.DemonicSword;
 import com.github.lukethadley.elysiumitems.items.tools.swords.VolatileSword;
 import com.github.lukethadley.elysiumitems.items.tools.bows.EnderBow;
 import com.github.lukethadley.elysiumitems.items.tools.bows.ShotgunBow;
-import com.github.lukethadley.elysiumitems.listeners.tools.CodFatherListener;
-import org.bukkit.entity.Explosive;
 
 import java.util.HashMap;
 
@@ -47,6 +46,10 @@ public class ToolsHandler {
         FurnaceShovel furnaceShovel = new FurnaceShovel();
         customItems.put(furnaceShovel.getName(), furnaceShovel);
 
+        //Axes
+        MeatCleaver meatCleaver = new MeatCleaver();
+        customItems.put(meatCleaver.getName(), meatCleaver);
+
         //Pickaxes
         LuckOfTheEndPickaxe luckOfTheEndPickaxe = new LuckOfTheEndPickaxe();
         customItems.put(luckOfTheEndPickaxe.getName(), luckOfTheEndPickaxe);
@@ -56,6 +59,8 @@ public class ToolsHandler {
         customItems.put(luckOfTheOceanPickaxe.getName(), luckOfTheOceanPickaxe);
         CruciblePickaxe cruciblePickaxe = new CruciblePickaxe();
         customItems.put(cruciblePickaxe.getName(), cruciblePickaxe);
+        MagnetPickaxe magnetPickaxe = new MagnetPickaxe();
+        customItems.put(magnetPickaxe.getName(), magnetPickaxe);
 
         //Fishing Rods
         CodFatherRod codFatherRod = new CodFatherRod();
