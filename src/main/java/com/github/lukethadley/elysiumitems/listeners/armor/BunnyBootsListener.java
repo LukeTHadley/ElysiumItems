@@ -2,6 +2,7 @@ package com.github.lukethadley.elysiumitems.listeners.armor;
 
 import com.github.lukethadley.elysiumitems.items.armor.boots.BunnyBoots;
 import de.tr7zw.changeme.nbtapi.NBTItem;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -30,14 +31,14 @@ public class BunnyBootsListener implements Listener {
         ItemStack cursor = event.getCursor();
 
         if (event.getSlotType().equals(InventoryType.SlotType.ARMOR)) {
-            if (cursor != null && cursor.getType() == bunnyBoots.getItemType()) { //Applying
+            if (cursor != null && cursor.getType() == bunnyBoots.getItemType() && item.getType() != Material.AIR) { //Applying
                 NBTItem cursornbti = new NBTItem(cursor);
                 if (cursornbti.getString("plugin").equals("Elysium-Items") && cursornbti.getString("item").equals("BunnyBoots")){
                     player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, Integer.MAX_VALUE, 2));
                     return;
                 }
             }
-            else if (item != null && item.getType() == bunnyBoots.getItemType()) { //Removing
+            else if (item != null && item.getType() == bunnyBoots.getItemType() && item.getType() != Material.AIR) { //Removing
                 NBTItem itemnbti = new NBTItem(item);
                 if (itemnbti.getString("plugin").equals("Elysium-Items") && itemnbti.getString("item").equals("BunnyBoots")) {
                     player.removePotionEffect(PotionEffectType.JUMP);
@@ -52,7 +53,7 @@ public class BunnyBootsListener implements Listener {
     public void inventoryClose(InventoryCloseEvent event){
         Player player = (Player) event.getPlayer();
         ItemStack boots = player.getInventory().getBoots();
-        if (boots == null){
+        if (boots == null || boots.getType() != Material.AIR){
             return;
         }
         NBTItem nbti = new NBTItem(boots);

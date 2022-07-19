@@ -31,7 +31,7 @@ public class InfernoSetListener implements Listener {
         ItemStack leggings = player.getInventory().getLeggings();
         ItemStack boots = player.getInventory().getBoots();
 
-        if (helmet != null && chestplate != null && leggings != null && boots != null) { // Check items are not null
+        if (helmet != null && chestplate != null && leggings != null && boots != null && helmet.getType() != Material.AIR && chestplate.getType() != Material.AIR && leggings.getType() != Material.AIR && boots.getType() != Material.AIR) { // Check items are not null
             NBTItem helmetnbti = new NBTItem(helmet);
             NBTItem chestplatenbti = new NBTItem(chestplate);
             NBTItem leggingsnbti = new NBTItem(leggings);
@@ -53,7 +53,7 @@ public class InfernoSetListener implements Listener {
             ItemStack chestplate = player.getInventory().getChestplate();
             ItemStack leggings = player.getInventory().getLeggings();
             ItemStack boots = player.getInventory().getBoots();
-            if (helmet != null && chestplate != null && leggings != null && boots != null) { // Check items are not null
+            if (helmet != null && chestplate != null && leggings != null && boots != null && helmet.getType() != Material.AIR && chestplate.getType() != Material.AIR && leggings.getType() != Material.AIR && boots.getType() != Material.AIR) { // Check items are not null
 
                 NBTItem helmetnbti = new NBTItem(helmet);
                 NBTItem chestplatenbti = new NBTItem(chestplate);

@@ -37,6 +37,10 @@ public class DemonicSwordListener implements Listener {
                 Player damagee = (Player) e.getEntity();
 
                 ItemStack tool = damager.getInventory().getItemInMainHand();
+                if (tool == null || tool.getType().isAir()){
+                    return;
+                }
+
                 NBTItem nbti = new NBTItem(tool);
 
                 String plugintag = nbti.getString("plugin");

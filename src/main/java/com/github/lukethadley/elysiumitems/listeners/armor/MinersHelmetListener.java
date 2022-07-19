@@ -2,6 +2,7 @@ package com.github.lukethadley.elysiumitems.listeners.armor;
 
 import com.github.lukethadley.elysiumitems.items.armor.helmets.MinersHelmet;
 import de.tr7zw.changeme.nbtapi.NBTItem;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -30,7 +31,7 @@ public class MinersHelmetListener implements Listener {
         ItemStack cursor = event.getCursor();
 
         if (event.getSlotType().equals(InventoryType.SlotType.ARMOR)) {
-            if (cursor != null && cursor.getType() == minersHelmet.getItemType()) { //Applying
+            if (cursor != null && cursor.getType() == minersHelmet.getItemType() && cursor.getType() != Material.AIR) { //Applying
                 NBTItem cursornbti = new NBTItem(cursor);
                 if (cursornbti.getString("plugin").equals("Elysium-Items") && cursornbti.getString("item").equals("MinersHelmet")) {
                     player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0));
@@ -39,7 +40,7 @@ public class MinersHelmetListener implements Listener {
 
 
             }
-            else if (item != null && item.getType() == minersHelmet.getItemType()) { //Removing
+            else if (item != null && item.getType() == minersHelmet.getItemType() && cursor.getType() != Material.AIR) { //Removing
                 NBTItem itemnbti = new NBTItem(item);
                 if (itemnbti.getString("plugin").equals("Elysium-Items") && itemnbti.getString("item").equals("MinersHelmet")) {
                     player.removePotionEffect(PotionEffectType.FAST_DIGGING);
@@ -54,7 +55,7 @@ public class MinersHelmetListener implements Listener {
     public void inventoryClose(InventoryCloseEvent event){
         Player player = (Player) event.getPlayer();
         ItemStack helmet = player.getInventory().getHelmet();
-        if (helmet == null){
+        if (helmet == null || helmet.getType() != Material.AIR){
             return;
         }
         NBTItem nbti = new NBTItem(helmet);

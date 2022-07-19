@@ -12,6 +12,9 @@ public class FurnaceShovelListener implements Listener {
     @EventHandler
     public void checkCruciblePickaxe(BlockBreakEvent event){
         ItemStack pickaxe = event.getPlayer().getInventory().getItemInMainHand();
+        if (pickaxe == null || pickaxe.getType().isAir()){
+            return;
+        }
         NBTItem nbti = new NBTItem(pickaxe);
         String plugin = nbti.getString("plugin");
         String item = nbti.getString("item");

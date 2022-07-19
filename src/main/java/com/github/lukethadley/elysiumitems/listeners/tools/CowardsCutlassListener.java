@@ -29,6 +29,9 @@ public class CowardsCutlassListener implements Listener {
                 //Player damagee = (Player) e.getEntity();
 
                 ItemStack tool = damager.getInventory().getItemInMainHand();
+                if (tool == null || tool.getType().isAir()){
+                    return;
+                }
 
                 NBTItem nbti = new NBTItem(tool);
 

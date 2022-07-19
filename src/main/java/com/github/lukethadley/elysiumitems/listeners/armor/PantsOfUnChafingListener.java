@@ -28,14 +28,14 @@ public class PantsOfUnChafingListener implements Listener {
         ItemStack cursor = event.getCursor();
 
         if (event.getSlotType().equals(InventoryType.SlotType.ARMOR)) {
-            if (cursor != null && cursor.getType() == pantsofUnChafing.getItemType()) { //Applying
+            if (cursor != null && cursor.getType() == pantsofUnChafing.getItemType() && cursor.getType() != Material.AIR) { //Applying
                 NBTItem cursornbti = new NBTItem(cursor);
                 if (cursornbti.getString("plugin").equals("Elysium-Items") && cursornbti.getString("item").equals("PantsOfUnChafing")){
                     player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0));
                     return;
                 }
             }
-            else if (item != null && item.getType() == pantsofUnChafing.getItemType()) { //Removing
+            else if (item != null && item.getType() == pantsofUnChafing.getItemType() && cursor.getType() != Material.AIR) { //Removing
                 NBTItem itemnbti = new NBTItem(item);
                 if (itemnbti.getString("plugin").equals("Elysium-Items") && itemnbti.getString("item").equals("PantsOfUnChafing")) {
                     player.removePotionEffect(PotionEffectType.SPEED);
@@ -50,7 +50,7 @@ public class PantsOfUnChafingListener implements Listener {
     public void inventoryClose(InventoryCloseEvent event){
         Player player = (Player) event.getPlayer();
         ItemStack leggings = player.getInventory().getLeggings();
-        if (leggings == null){
+        if (leggings == null || leggings.getType() != Material.AIR){
             return;
         }
         NBTItem nbti = new NBTItem(leggings);

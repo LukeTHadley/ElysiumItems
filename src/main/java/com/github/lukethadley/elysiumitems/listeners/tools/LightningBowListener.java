@@ -41,6 +41,9 @@ public class LightningBowListener implements Listener {
         try{
             if (e.getEntity() instanceof Player){ //Make sure the entity shooting this is a player
                 final ItemStack itmStk = e.getBow();
+                if (itmStk == null || itmStk.getType().isAir()){
+                    return;
+                }
                 final NBTItem nbti = new NBTItem(itmStk);
                 final String plugin = nbti.getString("plugin");
                 final String item = nbti.getString("item");

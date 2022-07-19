@@ -136,6 +136,10 @@ public class LuckOfTheNetherListener implements Listener {
     public void luckyNetherListener(BlockBreakEvent e){
         if (e.getBlock().getWorld().getEnvironment() == World.Environment.NETHER){ //If the player is in the nether
             ItemStack tool = e.getPlayer().getInventory().getItemInMainHand();
+            if (tool == null || tool.getType().isAir()){
+                return;
+            }
+
             NBTItem nbti = new NBTItem(tool);
             String plugin = nbti.getString("plugin");
             String item = nbti.getString("item");

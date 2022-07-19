@@ -55,6 +55,10 @@ public class VolatileToolListener implements Listener {
     public void volatileToolExplosion(PlayerItemBreakEvent e){
 
         final ItemStack itmStk = e.getBrokenItem();
+
+        if (itmStk == null || itmStk.getType().isAir()){
+            return;
+        }
         final NBTItem nbti = new NBTItem(itmStk);
 
         final String plugin = nbti.getString("plugin");

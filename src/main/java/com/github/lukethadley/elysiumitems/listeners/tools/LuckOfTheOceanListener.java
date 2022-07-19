@@ -136,6 +136,11 @@ public class LuckOfTheOceanListener implements Listener {
     @EventHandler
     public void luckyEndListener(BlockBreakEvent e) {
         ItemStack tool = e.getPlayer().getInventory().getItemInMainHand();
+
+        if (tool == null || tool.getType().isAir()){
+            return;
+        }
+
         NBTItem nbti = new NBTItem(tool);
 
         String plugin = nbti.getString("plugin");

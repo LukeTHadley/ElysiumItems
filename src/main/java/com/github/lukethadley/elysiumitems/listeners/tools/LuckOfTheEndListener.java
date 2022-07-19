@@ -115,6 +115,10 @@ public class LuckOfTheEndListener implements Listener {
     public void luckyEndListener(BlockBreakEvent e){
         if (e.getBlock().getWorld().getEnvironment() == World.Environment.THE_END) { //If the player is in the end
             ItemStack tool = e.getPlayer().getInventory().getItemInMainHand();
+            if (tool == null || tool.getType().isAir()){
+                return;
+            }
+
             NBTItem nbti = new NBTItem(tool);
 
             String plugin = nbti.getString("plugin");

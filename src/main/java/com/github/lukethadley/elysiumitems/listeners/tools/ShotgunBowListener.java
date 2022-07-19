@@ -46,6 +46,10 @@ public class ShotgunBowListener implements Listener {
 
 
                 ItemStack itmStk = e.getBow();
+                if (itmStk == null || itmStk.getType().isAir()){
+                    return;
+                }
+
                 NBTItem nbti = new NBTItem(itmStk);
 
                 String plugin = nbti.getString("plugin");

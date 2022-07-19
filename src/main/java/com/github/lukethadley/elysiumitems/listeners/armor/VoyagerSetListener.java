@@ -5,6 +5,7 @@ import com.github.lukethadley.elysiumitems.items.armor.chestplate.VoyagerChestpl
 import com.github.lukethadley.elysiumitems.items.armor.helmets.VoyagerHelmet;
 import com.github.lukethadley.elysiumitems.items.armor.leggings.VoyagerLeggings;
 import de.tr7zw.changeme.nbtapi.NBTItem;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -38,7 +39,7 @@ public class VoyagerSetListener implements Listener {
         ItemStack leggings = player.getInventory().getLeggings();
         ItemStack boots = player.getInventory().getBoots();
 
-        if (helmet != null && chestplate != null && leggings != null && boots != null) { // Check items are not null
+        if (helmet != null && chestplate != null && leggings != null && boots != null && helmet.getType() != Material.AIR && chestplate.getType() != Material.AIR && leggings.getType() != Material.AIR && boots.getType() != Material.AIR) { // Check items are not null
             NBTItem helmetnbti = new NBTItem(helmet);
             NBTItem chestplatenbti = new NBTItem(chestplate);
             NBTItem leggingsnbti = new NBTItem(leggings);
@@ -60,7 +61,7 @@ public class VoyagerSetListener implements Listener {
             ItemStack chestplate = player.getInventory().getChestplate();
             ItemStack leggings = player.getInventory().getLeggings();
             ItemStack boots = player.getInventory().getBoots();
-            if (helmet != null && chestplate != null && leggings != null && boots != null) { // Check items are not null
+            if (helmet != null && chestplate != null && leggings != null && boots != null && helmet.getType() != Material.AIR && chestplate.getType() != Material.AIR && leggings.getType() != Material.AIR && boots.getType() != Material.AIR) { // Check items are not null
 
                 NBTItem helmetnbti = new NBTItem(helmet);
                 NBTItem chestplatenbti = new NBTItem(chestplate);
