@@ -7,6 +7,13 @@ commands:
   elysiumtools:
     description: a test command
     usage: /elysiumtools [give | list] {toolname} {playername}
+    permission: elysiumitems.givetools
   elysiumarmor:
     description: a test command
     usage: /elysiumarmor [give | list] {toolname} {playername}
+    permission: elysiumitems.givearmor
+permissions:
+  elysiumitems.givearmor:
+    default: op
+  elysiumitems.givetools:
+    default: op
