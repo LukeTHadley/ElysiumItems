@@ -7,6 +7,7 @@ import com.github.lukethadley.elysiumitems.items.tools.fishingrods.CodFatherRod;
 import com.github.lukethadley.elysiumitems.items.tools.hoes.SpiderScythe;
 import com.github.lukethadley.elysiumitems.items.tools.hoes.VolatileHoe;
 import com.github.lukethadley.elysiumitems.items.tools.pickaxes.*;
+import com.github.lukethadley.elysiumitems.items.tools.shovels.FurnaceShovel;
 import com.github.lukethadley.elysiumitems.items.tools.shovels.VolatileShovel;
 import com.github.lukethadley.elysiumitems.items.tools.swords.CowardsCutlassSword;
 import com.github.lukethadley.elysiumitems.items.tools.swords.DemonicSword;
@@ -41,6 +42,10 @@ public class ToolsHandler {
         customItems.put(shotgunBow.getName(), shotgunBow);
         LightningBow lightningBow = new LightningBow();
         customItems.put(lightningBow.getName(), lightningBow);
+
+        //Shovels
+        FurnaceShovel furnaceShovel = new FurnaceShovel();
+        customItems.put(furnaceShovel.getName(), furnaceShovel);
 
         //Pickaxes
         LuckOfTheEndPickaxe luckOfTheEndPickaxe = new LuckOfTheEndPickaxe();
