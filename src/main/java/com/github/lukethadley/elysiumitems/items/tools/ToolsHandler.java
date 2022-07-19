@@ -49,6 +49,8 @@ public class ToolsHandler {
         customItems.put(luckOfTheNetherPickaxe.getName(), luckOfTheNetherPickaxe);
         LuckOfTheOceanPickaxe luckOfTheOceanPickaxe = new LuckOfTheOceanPickaxe();
         customItems.put(luckOfTheOceanPickaxe.getName(), luckOfTheOceanPickaxe);
+        CruciblePickaxe cruciblePickaxe = new CruciblePickaxe();
+        customItems.put(cruciblePickaxe.getName(), cruciblePickaxe);
 
         //Fishing Rods
         CodFatherRod codFatherRod = new CodFatherRod();
