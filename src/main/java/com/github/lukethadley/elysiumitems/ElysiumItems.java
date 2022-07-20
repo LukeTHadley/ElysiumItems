@@ -17,19 +17,17 @@ public final class ElysiumItems extends JavaPlugin {
 
         getLogger().info("Applying Listeners...");
         getServer().getPluginManager().registerEvents(new EntityShootBowEventListener(this), this);
+        getServer().getPluginManager().registerEvents(new BlockBreakEventListener(), this);
 
         getServer().getPluginManager().registerEvents(new DemonicSwordListener(this), this);
         getServer().getPluginManager().registerEvents(new VolatileToolListener(), this);
-        getServer().getPluginManager().registerEvents(new LuckOfTheEndListener(), this);
-        getServer().getPluginManager().registerEvents(new LuckOfTheNetherListener(), this);
-        getServer().getPluginManager().registerEvents(new LuckOfTheOceanListener(), this);
+        //getServer().getPluginManager().registerEvents(new LuckOfTheEndListener(), this);
+        //getServer().getPluginManager().registerEvents(new LuckOfTheNetherListener(), this);
+        //getServer().getPluginManager().registerEvents(new LuckOfTheOceanListener(), this);
         getServer().getPluginManager().registerEvents(new CowardsCutlassListener(), this);
         getServer().getPluginManager().registerEvents(new CodFatherListener(), this);
         getServer().getPluginManager().registerEvents(new SpiderScytheListener(), this);
-        getServer().getPluginManager().registerEvents(new CruciblePickaxeListener(), this);
-        getServer().getPluginManager().registerEvents(new FurnaceShovelListener(), this);
         getServer().getPluginManager().registerEvents(new MeatCleaverListener(), this);
-        getServer().getPluginManager().registerEvents(new MagnetPickaxeListener(), this);
 
         getServer().getPluginManager().registerEvents(new BunnyBootsListener(), this);
         getServer().getPluginManager().registerEvents(new MinersHelmetListener(), this);
