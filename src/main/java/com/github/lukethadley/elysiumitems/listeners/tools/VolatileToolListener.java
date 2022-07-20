@@ -83,19 +83,4 @@ public class VolatileToolListener implements Listener {
         return;
     }
 
-    //Negate the damage that the firework does, set the health of the player to half a heart
-    @EventHandler
-    public void negateFireworkDamageForVolatile(EntityDamageByEntityEvent e){
-        if (e.getDamager() instanceof Firework) { //If the entity that did the damage was a firework
-            if (e.getEntity() instanceof Player) { //And the entity was damaged was a player
-                Firework damager = (Firework) e.getDamager();
-                Player damagee = (Player) e.getEntity();
-                if (damager.getFireworkMeta().getLore().equals(VOLATILE_FIREWORK_LORE_TAG)){ //If it was a firework from a volatile explosion
-                    damagee.setHealth(1.0);
-                    e.setCancelled(true);
-                }
-
-            }
-        }
-    }
 }
