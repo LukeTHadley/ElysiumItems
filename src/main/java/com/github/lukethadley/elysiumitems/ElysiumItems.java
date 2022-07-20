@@ -11,15 +11,13 @@ public final class ElysiumItems extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        getLogger().info("Starting Elysium Items");
+        getLogger().info("Starting Elysium Items...");
         getCommand("elysiumtools").setExecutor(new ToolsCommandHandler(this));
         getCommand("elysiumarmor").setExecutor(new ArmorCommandHandler(this));
 
-        //getServer().getPluginManager().registerEvents(new EssentialsFixListener(), this);
+        getLogger().info("Applying Listeners...");
+        getServer().getPluginManager().registerEvents(new EntityShootBowEventListener(this), this);
 
-        getServer().getPluginManager().registerEvents(new EnderBowListener(), this);
-        getServer().getPluginManager().registerEvents(new ShotgunBowListener(this), this);
-        getServer().getPluginManager().registerEvents(new LightningBowListener(), this);
         getServer().getPluginManager().registerEvents(new DemonicSwordListener(this), this);
         getServer().getPluginManager().registerEvents(new VolatileToolListener(), this);
         getServer().getPluginManager().registerEvents(new LuckOfTheEndListener(), this);
