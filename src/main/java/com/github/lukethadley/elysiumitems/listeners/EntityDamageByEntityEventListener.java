@@ -1,4 +1,4 @@
-package com.github.lukethadley.elysiumitems.listeners.tools;
+package com.github.lukethadley.elysiumitems.listeners;
 
 import com.github.lukethadley.elysiumitems.ElysiumItems;
 import com.github.lukethadley.elysiumitems.ToolsMessages;

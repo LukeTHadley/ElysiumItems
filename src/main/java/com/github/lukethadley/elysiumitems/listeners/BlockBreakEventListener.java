@@ -1,4 +1,4 @@
-package com.github.lukethadley.elysiumitems.listeners.tools;
+package com.github.lukethadley.elysiumitems.listeners;
 
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Material;
