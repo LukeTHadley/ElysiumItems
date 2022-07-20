@@ -34,7 +34,7 @@ public class EntityShootBowEventListener implements Listener {
 
 
     @EventHandler
-    public void shotgunBowEvent(EntityShootBowEvent e){
+    public void entityShowBowEventHandler(EntityShootBowEvent e){
 
         if (e.getEntity() instanceof Player){ // Check that the entity shooting the bow is a Player
 
