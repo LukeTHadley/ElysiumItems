@@ -51,12 +51,13 @@ public class ToolsHandler {
         customItems.put(meatCleaver.getName(), meatCleaver);
 
         //Pickaxes
+        /**
         LuckOfTheEndPickaxe luckOfTheEndPickaxe = new LuckOfTheEndPickaxe();
         customItems.put(luckOfTheEndPickaxe.getName(), luckOfTheEndPickaxe);
         LuckOfTheNetherPickaxe luckOfTheNetherPickaxe = new LuckOfTheNetherPickaxe();
         customItems.put(luckOfTheNetherPickaxe.getName(), luckOfTheNetherPickaxe);
         LuckOfTheOceanPickaxe luckOfTheOceanPickaxe = new LuckOfTheOceanPickaxe();
-        customItems.put(luckOfTheOceanPickaxe.getName(), luckOfTheOceanPickaxe);
+        customItems.put(luckOfTheOceanPickaxe.getName(), luckOfTheOceanPickaxe);**/
         CruciblePickaxe cruciblePickaxe = new CruciblePickaxe();
         customItems.put(cruciblePickaxe.getName(), cruciblePickaxe);
         MagnetPickaxe magnetPickaxe = new MagnetPickaxe();
