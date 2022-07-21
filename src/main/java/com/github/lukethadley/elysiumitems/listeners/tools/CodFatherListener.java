@@ -24,8 +24,6 @@ public class CodFatherListener implements Listener {
             if (plugin.equals("Elysium-Items")) {
                 if (item.equals("CodFatherRod")) {
                     Item stack = (Item) event.getCaught();
-                    event.getPlayer().sendRawMessage(stack.getItemStack().getType().name());
-
                     if (stack.getItemStack().getType() == Material.COD){
                         stack.setItemStack(new ItemStack(Material.COOKED_COD)); //Your new itemstack here!
                     }
