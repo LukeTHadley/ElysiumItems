@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class CowardsCutlassSword extends CustomItem {
 
     private static final String NAME = "CowardsCutlass";
-    private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#009973") + "" + ChatColor.BOLD + "Cowards Cuttlas";
+    private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#009973") + "" + ChatColor.BOLD + "Cowards Cutlass";
     private static final String DESCRIPTION = "Sword with knockback 8";
     private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#009973") + "YEEEEEEEEET!","&7This sword will count the number", "&7of players it has cast aside!", "&7Counter = " + net.md_5.bungee.api.ChatColor.of("#009973") + "0"};
 
