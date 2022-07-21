@@ -7,8 +7,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ArmorCommandHandler implements TabExecutor {
@@ -50,11 +52,21 @@ public class ArmorCommandHandler implements TabExecutor {
                                 if (args.length >= 3){ //If a specific player was specified
                                     Player playerToGiveTo = plugin.getServer().getPlayer(args[2]);
                                     if (playerToGiveTo != null){ //And the player exists
-                                        playerToGiveTo.getInventory().addItem(item.getItem()); //Give to the player
-                                        sender.sendMessage("You gave " + item.getName() + " to " + playerToGiveTo.getName());
-                                        playerToGiveTo.sendMessage("You were given " + item.getName());
-                                        plugin.getServer().getLogger().info(playerToGiveTo.getName() + " was given " + item.getName() + " by " + sender.getName());
+                                        HashMap<Integer, ItemStack> overflowItem = playerToGiveTo.getInventory().addItem(item.getItem()); //Give to the player
+                                        if (overflowItem.size() != 0){ // If that hashmap contains items, let the event handle the dropping naturally
+                                            sender.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', ToolsMessages.PLUGIN_PREFIX + "You gave &b" + item.getName() + "&7 to &b" + playerToGiveTo.getName()));
+                                            playerToGiveTo.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', ToolsMessages.PLUGIN_PREFIX + "Attempted to give you &b" + item.getName() + " &7but you didn't have space in your inventory, placing it on the ground."));
+                                            plugin.getLogger().info( sender.getName() + " attempted to give " + item.getName() + " to " + playerToGiveTo.getName() + " but they didn't have space in their inventory, placing it on the ground!");
+                                            playerToGiveTo.getWorld().dropItemNaturally(playerToGiveTo.getLocation(), item.getItem());
+                                            return true;
+                                        }
+
+                                        sender.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', ToolsMessages.PLUGIN_PREFIX + "You gave &b" + item.getName() + "&7 to &b" + playerToGiveTo.getName()));
+                                        playerToGiveTo.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', ToolsMessages.PLUGIN_PREFIX + "You were given " + item.getName()));
+                                        plugin.getLogger().info(playerToGiveTo.getName() + " was given " + item.getName() + " by " + sender.getName());
                                         return true;
+
+
                                     }
                                     else { //If the player did not exist
                                         sender.sendMessage("That player does not exist!");
@@ -63,9 +75,15 @@ public class ArmorCommandHandler implements TabExecutor {
                                 else {
                                     if (sender instanceof Player){ //If a player wasn't specified, and the sender was a player, give it to that player
                                         Player p = (Player) sender;
-                                        p.getInventory().addItem(item.getItem());
-                                        sender.sendMessage("You were given " + item.getName());
-                                        plugin.getServer().getLogger().info(sender.getName() + " was given " + item.getName() + " by themselves");
+                                        HashMap<Integer, ItemStack> overflowItem = p.getInventory().addItem(item.getItem()); //Give to the player
+                                        if (overflowItem.size() != 0){ // If that hashmap contains items, let the event handle the dropping naturally
+                                            p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', ToolsMessages.PLUGIN_PREFIX + "Attempted to give you &b" + item.getName() + " &7but you didn't have space in your inventory, placing it on the ground."));
+                                            plugin.getLogger().info("Attempted to give " + item.getName() + " to " + p.getName() + " but they didn't have space in their inventory, placing it on the ground!");
+                                            p.getWorld().dropItemNaturally(p.getLocation(), item.getItem());
+                                            return true;
+                                        }
+                                        p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', ToolsMessages.PLUGIN_PREFIX + "You were given " + item.getName()));
+                                        plugin.getLogger().info( p.getName() + " was given " + item.getName() + " by " + sender.getName());
                                         return true;
                                     }
                                     else { //Console should not be given items, tell them off!
