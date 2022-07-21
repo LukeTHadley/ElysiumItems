@@ -1,10 +1,6 @@
 package com.github.lukethadley.elysiumitems;
 
-import com.github.lukethadley.elysiumitems.listeners.BlockBreakEventListener;
-import com.github.lukethadley.elysiumitems.listeners.EntityDamageByEntityEventListener;
-import com.github.lukethadley.elysiumitems.listeners.EntityShootBowEventListener;
-import com.github.lukethadley.elysiumitems.listeners.WorkbenchListener;
-import com.github.lukethadley.elysiumitems.listeners.armor.*;
+import com.github.lukethadley.elysiumitems.listeners.*;
 import com.github.lukethadley.elysiumitems.listeners.tools.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -22,6 +18,7 @@ public final class ElysiumItems extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EntityShootBowEventListener(this), this);
         getServer().getPluginManager().registerEvents(new BlockBreakEventListener(), this);
         getServer().getPluginManager().registerEvents(new EntityDamageByEntityEventListener(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerArmorChangeEventListener(), this);
 
         getServer().getPluginManager().registerEvents(new VolatileToolListener(), this);
         //getServer().getPluginManager().registerEvents(new LuckOfTheEndListener(), this);
@@ -29,12 +26,8 @@ public final class ElysiumItems extends JavaPlugin {
         //getServer().getPluginManager().registerEvents(new LuckOfTheOceanListener(), this);
         getServer().getPluginManager().registerEvents(new CodFatherListener(), this);
 
-        getServer().getPluginManager().registerEvents(new BunnyBootsListener(), this);
-        getServer().getPluginManager().registerEvents(new MinersHelmetListener(), this);
-        getServer().getPluginManager().registerEvents(new VoyagerSetListener(), this);
-        getServer().getPluginManager().registerEvents(new ScooberSetListener(), this);
-        getServer().getPluginManager().registerEvents(new InfernoSetListener(), this);
-        getServer().getPluginManager().registerEvents(new PantsOfUnChafingListener(), this);
+
+        //getServer().getPluginManager().registerEvents(new ScooberSetListener(), this);
 
         getServer().getPluginManager().registerEvents(new WorkbenchListener(), this);
 

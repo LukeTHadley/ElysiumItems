@@ -5,10 +5,7 @@ import com.github.lukethadley.elysiumitems.items.armor.boots.*;
 import com.github.lukethadley.elysiumitems.items.armor.chestplate.InfernoChestplate;
 import com.github.lukethadley.elysiumitems.items.armor.chestplate.ScooberChestplate;
 import com.github.lukethadley.elysiumitems.items.armor.chestplate.VoyagerChestplate;
-import com.github.lukethadley.elysiumitems.items.armor.helmets.InfernoHelmet;
-import com.github.lukethadley.elysiumitems.items.armor.helmets.MinersHelmet;
-import com.github.lukethadley.elysiumitems.items.armor.helmets.ScooberHelmet;
-import com.github.lukethadley.elysiumitems.items.armor.helmets.VoyagerHelmet;
+import com.github.lukethadley.elysiumitems.items.armor.helmets.*;
 import com.github.lukethadley.elysiumitems.items.armor.leggings.InfernoLeggings;
 import com.github.lukethadley.elysiumitems.items.armor.leggings.PantsofUnChafing;
 import com.github.lukethadley.elysiumitems.items.armor.leggings.ScooberLeggings;
@@ -36,6 +33,8 @@ public class ArmorHandler {
         //Helmets
         MinersHelmet minersHelmet = new MinersHelmet();
         customItems.put(minersHelmet.getName(), minersHelmet);
+        NightOwlHelmet nightOwlHelmet = new NightOwlHelmet();
+        customItems.put(nightOwlHelmet.getName(), nightOwlHelmet);
 
         //Leggings
         PantsofUnChafing pantsofUnChafing = new PantsofUnChafing();
@@ -51,6 +50,7 @@ public class ArmorHandler {
         VoyagerBoots voyagerBoots = new VoyagerBoots();
         customItems.put(voyagerBoots.getName(), voyagerBoots);
 
+        /**
         //Scoober Set
         ScooberHelmet scooberHelmet = new ScooberHelmet();
         customItems.put(scooberHelmet.getName(), scooberHelmet);
@@ -59,7 +59,7 @@ public class ArmorHandler {
         ScooberLeggings scooberLeggings = new ScooberLeggings();
         customItems.put(scooberLeggings.getName(), scooberLeggings);
         ScooberBoots scooberBoots = new ScooberBoots();
-        customItems.put(scooberBoots.getName(), scooberBoots);
+        customItems.put(scooberBoots.getName(), scooberBoots);**/
 
         //Inferno Set
         InfernoBoots infernoBoots = new InfernoBoots();

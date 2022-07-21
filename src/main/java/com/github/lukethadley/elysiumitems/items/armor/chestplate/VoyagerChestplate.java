@@ -32,7 +32,7 @@ public class VoyagerChestplate extends CustomItem {
         itmStk.setItemMeta(meta);
         NBTItem nbti = new NBTItem(itmStk);
         nbti.setString("plugin", "Elysium-Items");
-        nbti.setString("item", NAME);
+        nbti.setString("item", "Voyager");
         nbti.applyNBT(itmStk);
         return itmStk;
     }
