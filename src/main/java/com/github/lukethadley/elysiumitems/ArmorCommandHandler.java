@@ -18,7 +18,7 @@ public class ArmorCommandHandler implements TabExecutor {
     private ArmorHandler items;
     private ElysiumItems plugin;
 
-    private static final String[] subcommands = new String[]{"list", "give"};
+    private static final String[] subcommands = new String[]{"list", "give", "all"};
 
     public ArmorCommandHandler(ElysiumItems plugin){
         this.plugin = plugin;
@@ -100,6 +100,14 @@ public class ArmorCommandHandler implements TabExecutor {
                             sender.sendMessage("Please specify a custom item");
                         }
 
+                    }
+                    if (args[0].equalsIgnoreCase("all")) {
+                        if (sender instanceof Player) { //If a player wasn't specified, and the sender was a player, give it to that player
+                            Player p = (Player) sender;
+                            for (CustomItem item : items.getCustomItems().values()){
+                                p.getInventory().addItem(item.getItem());
+                            }
+                        }
                     }
                 }
 

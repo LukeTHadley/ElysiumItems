@@ -15,7 +15,7 @@ public class ToolsMessages {
     public static final String LIST_ALL_TOOLS_HEADER = "&8------ &3Elysium Tools &8-----";
     public static final String LIST_ALL_TOOLS_FOOTER = "&8--------------------------";
 
-    public static final String CANT_PLACE_IN_WORKSTATION = "You can't put a custom item item into into this workstation!";
+    public static final String CANT_PLACE_IN_WORKSTATION = "You can't put this custom item item into into this workstation!";
 
     public static String getDemonicSwordDamagerMessage(String name){
         return PLUGIN_PREFIX + "&7You used your Demonic Sword &7and inflicted the Wither Effect on " + name + " &7for 10 seconds!" +

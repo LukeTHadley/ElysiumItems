@@ -32,6 +32,7 @@ public class CodFatherRod extends CustomItem {
 
         NBTItem nbti = new NBTItem(itmStk);
         nbti.setString("plugin", "Elysium-Items");
+        nbti.setBoolean("modifiable", true);
         nbti.setString("item", NAME);
         nbti.applyNBT(itmStk);
         return itmStk;

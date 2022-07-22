@@ -15,7 +15,8 @@ public class SlimeSlippers extends CustomItem {
     private static final String NAME = "SlimeSlippers";
     private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#40db76") + "&lSlime Slippers";
     private static final String DESCRIPTION = "This item has feather falling 8!";
-    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#40db76") + "Squelch... Squelch... Squelch...", "&7Just some nice feather falling boots!"};
+    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#40db76") + "Squelch... Squelch... Squelch...", "&7Just some nice feather falling boots!",
+            "&8This item is not &8modifiable/fixable!"};
 
     public SlimeSlippers(){
         super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.LEATHER_BOOTS);
@@ -34,6 +35,7 @@ public class SlimeSlippers extends CustomItem {
 
 
         meta.addEnchant(Enchantment.PROTECTION_FALL, 8, true);
+        meta.addEnchant(Enchantment.DURABILITY, 5, true);
 
         itmStk.setItemMeta(meta);
 

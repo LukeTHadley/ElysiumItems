@@ -18,7 +18,7 @@ public class CowardsCutlassSword extends CustomItem {
     private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#009973") + "YEEEEEEEEET!","&7This sword will count the number", "&7of players it has cast aside!", "&7Counter = " + net.md_5.bungee.api.ChatColor.of("#009973") + "0"};
 
     public CowardsCutlassSword(){
-        super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.STONE_SWORD);
+        super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.IRON_SWORD);
     }
 
     @Override
@@ -30,14 +30,12 @@ public class CowardsCutlassSword extends CustomItem {
         itmMeta.setLore(Arrays.asList(getLore()));
 
         itmMeta.addEnchant(Enchantment.KNOCKBACK, 8, true);
-        itmMeta.addEnchant(Enchantment.DURABILITY, 3, true);
-        itmMeta.addEnchant(Enchantment.DAMAGE_ALL, 2, true);
-
 
         itmStk.setItemMeta(itmMeta);
 
         NBTItem nbti = new NBTItem(itmStk);
         nbti.setString("plugin", "Elysium-Items");
+        nbti.setBoolean("modifiable", true);
         nbti.setString("item", NAME);
 
         nbti.applyNBT(itmStk);

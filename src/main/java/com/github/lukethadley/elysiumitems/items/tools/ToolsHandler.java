@@ -1,6 +1,7 @@
 package com.github.lukethadley.elysiumitems.items.tools;
 
 import com.github.lukethadley.elysiumitems.items.CustomItem;
+import com.github.lukethadley.elysiumitems.items.tools.axes.MagnetAxe;
 import com.github.lukethadley.elysiumitems.items.tools.axes.MeatCleaver;
 import com.github.lukethadley.elysiumitems.items.tools.axes.VolatileAxe;
 import com.github.lukethadley.elysiumitems.items.tools.bows.LightningBow;
@@ -9,6 +10,7 @@ import com.github.lukethadley.elysiumitems.items.tools.hoes.SpiderScythe;
 import com.github.lukethadley.elysiumitems.items.tools.hoes.VolatileHoe;
 import com.github.lukethadley.elysiumitems.items.tools.pickaxes.*;
 import com.github.lukethadley.elysiumitems.items.tools.shovels.FurnaceShovel;
+import com.github.lukethadley.elysiumitems.items.tools.shovels.MagnetShovel;
 import com.github.lukethadley.elysiumitems.items.tools.shovels.VolatileShovel;
 import com.github.lukethadley.elysiumitems.items.tools.swords.CowardsCutlassSword;
 import com.github.lukethadley.elysiumitems.items.tools.swords.DemonicSword;
@@ -45,10 +47,14 @@ public class ToolsHandler {
         //Shovels
         FurnaceShovel furnaceShovel = new FurnaceShovel();
         customItems.put(furnaceShovel.getName(), furnaceShovel);
+        MagnetShovel magnetShovel = new MagnetShovel();
+        customItems.put(magnetShovel.getName(), magnetShovel);
 
         //Axes
         MeatCleaver meatCleaver = new MeatCleaver();
         customItems.put(meatCleaver.getName(), meatCleaver);
+        MagnetAxe magnetAxe = new MagnetAxe();
+        customItems.put(magnetAxe.getName(), magnetAxe);
 
         //Pickaxes
         /**

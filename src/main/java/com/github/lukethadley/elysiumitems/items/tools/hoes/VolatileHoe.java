@@ -14,7 +14,8 @@ public class VolatileHoe extends CustomItem {
     private static final String NAME = "VolatileHoe";
     private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#669999") + "&lVolatile Hoe";
     private static final String DESCRIPTION = "This item will explode when it breaks!";
-    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#669999") + "It was good while it lasted...", "&cWARNING: &fThis item will explode and", "&fcause you damage when it break!"};
+    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#669999") + "It was good while it lasted...", "&cWARNING: &fThis item will explode and", "&fcause you damage when it break!",
+            "&8This item is not &8modifiable/fixable!"};
 
     public VolatileHoe(){
         super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.IRON_HOE);
@@ -39,7 +40,7 @@ public class VolatileHoe extends CustomItem {
 
         nbti.applyNBT(itmStk);
 
-        itmStk.setDurability((short) (getItemType().getMaxDurability() - 3));
+        itmStk.setDurability((short) (getItemType().getMaxDurability() - 5));
 
         return itmStk;
     }

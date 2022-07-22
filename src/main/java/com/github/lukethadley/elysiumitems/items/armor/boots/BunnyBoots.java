@@ -15,7 +15,8 @@ public class BunnyBoots extends CustomItem {
     private static final String NAME = "BunnyBoots";
     private static final String ITEM_DISPLAY_NAME = "&a&lBunny Boots";
     private static final String DESCRIPTION = "This item will give the wearer Jump Boost!";
-    private static final String[] ITEM_LORE = new String[]{"&2Bounce like the bunny you are!", "&7Gives the user Jump Boost 3 while", "&7they are wearing the boots!"};
+    private static final String[] ITEM_LORE = new String[]{"&aBounce like the bunny you are!", "&7Gives the user Jump Boost 3 while", "&7they are wearing the boots!",
+            "&8This item is not &8modifiable/fixable!"};
 
     public BunnyBoots(){
         super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.LEATHER_BOOTS);
@@ -33,7 +34,7 @@ public class BunnyBoots extends CustomItem {
         meta.setLore(Arrays.asList(getLore()));
 
 
-        meta.addEnchant(Enchantment.DURABILITY, 3, true);
+        meta.addEnchant(Enchantment.DURABILITY, 5, true);
 
         itmStk.setItemMeta(meta);
 

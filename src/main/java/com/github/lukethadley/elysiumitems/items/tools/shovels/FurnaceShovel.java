@@ -17,7 +17,7 @@ public class FurnaceShovel extends CustomItem {
     private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#dbd32e") + "Diggy Diggy Hole!", "&7Sand mined with this shovel", "&7will be turned into Glass!"};
 
     public FurnaceShovel(){
-        super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.GOLDEN_SHOVEL);
+        super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.IRON_SHOVEL);
     }
 
     @Override
@@ -28,14 +28,11 @@ public class FurnaceShovel extends CustomItem {
         itmMeta.setDisplayName(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', getItemName()));
         itmMeta.setLore(Arrays.asList(getLore()));
 
-        itmMeta.addEnchant(Enchantment.DURABILITY, 3, true);
-
         itmStk.setItemMeta(itmMeta);
-
-
 
         NBTItem nbti = new NBTItem(itmStk);
         nbti.setString("plugin", "Elysium-Items");
+        nbti.setBoolean("modifiable", true);
         nbti.setString("item", NAME);
 
         nbti.applyNBT(itmStk);

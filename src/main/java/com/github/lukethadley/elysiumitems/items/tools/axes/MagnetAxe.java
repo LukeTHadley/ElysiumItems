@@ -1,23 +1,22 @@
-package com.github.lukethadley.elysiumitems.items.tools.hoes;
+package com.github.lukethadley.elysiumitems.items.tools.axes;
 
 import com.github.lukethadley.elysiumitems.items.CustomItem;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
 
-public class SpiderScythe extends CustomItem {
+public class MagnetAxe extends CustomItem {
 
-    private static final String NAME = "SpiderScythe";
-    private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#a376a1") + "&lSpider Scythe";
-    private static final String DESCRIPTION = "This item will one hit Spiders and Cave Spiders!";
-    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#a376a1") + "Ewwwwwww! Spider! Kill it!", "&7Kills Spiders in one hit."};
+    private static final String NAME = "MagnetAxe";
+    private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#42f5da") + "&lMagnet Axe";
+    private static final String DESCRIPTION = "This axe will attempt to place all that it mines into your inventory";
+    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#42f5da") + "MINE! MINE! MINE!", "&7This axe will attempt", "&7to place all that it mines", "&7into your inventory!"};
 
-    public SpiderScythe(){
-        super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.IRON_HOE);
+    public MagnetAxe(){
+        super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.DIAMOND_AXE);
     }
 
     @Override
@@ -33,9 +32,10 @@ public class SpiderScythe extends CustomItem {
         NBTItem nbti = new NBTItem(itmStk);
         nbti.setString("plugin", "Elysium-Items");
         nbti.setBoolean("modifiable", true);
-        nbti.setString("item", NAME);
+        nbti.setString("item", "Magnet");
 
         nbti.applyNBT(itmStk);
+
         return itmStk;
     }
 }

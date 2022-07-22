@@ -13,9 +13,10 @@ import java.util.Arrays;
 public class NightOwlHelmet extends CustomItem {
 
     private static final String NAME = "NightOwlHelmet";
-    private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#2c1db3") + "&lNight Owl Helmet";
+    private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#348ceb") + "&lNight Owl Helmet";
     private static final String DESCRIPTION = "This item will give the user Haste while they are wearing it!";
-    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#2c1db3") + "Like an Owl!", "&7Gives the user Night Vision while", "&7they are wearing the helmet!"};
+    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#348ceb") + "Like an Owl!", "&7Gives the user Night Vision while", "&7they are wearing the helmet!",
+            "&8This item is not &8modifiable/fixable!"};
 
     public NightOwlHelmet(){
         super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.LEATHER_HELMET);
@@ -26,10 +27,12 @@ public class NightOwlHelmet extends CustomItem {
         ItemStack itmStk = new ItemStack(getItemType(), 1);
 
         LeatherArmorMeta meta = (LeatherArmorMeta) itmStk.getItemMeta();
-        meta.setColor(Color.fromRGB(44, 29, 179));
+        meta.setColor(Color.fromRGB(52, 140, 235));
 
         meta.setDisplayName(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', getItemName()));
         meta.setLore(Arrays.asList(getLore()));
+
+        meta.addEnchant(Enchantment.DURABILITY, 5, true);
 
         itmStk.setItemMeta(meta);
 

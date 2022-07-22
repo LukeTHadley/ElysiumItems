@@ -28,7 +28,8 @@ public class InfernoHelmet extends CustomItem {
                     net.md_5.bungee.api.ChatColor.of("#9900cc") + "r" +
                     net.md_5.bungee.api.ChatColor.of("#cc0099") + "n" +
                     net.md_5.bungee.api.ChatColor.of("#cc0033") + "o",
-            "&7When worn in the full set, ", "&7the user will gain fire", "&7resistance in lava!"};
+            "&7When worn in the full set, ", "&7the user will gain fire", "&7resistance in lava!",
+            "&8This item is not &8modifiable/fixable!"};
 
     public InfernoHelmet(){
         super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.LEATHER_HELMET);
@@ -45,7 +46,7 @@ public class InfernoHelmet extends CustomItem {
         meta.setDisplayName(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', getItemName()));
         meta.setLore(Arrays.asList(getLore()));
 
-        meta.addEnchant(Enchantment.DURABILITY, 3, true);
+        meta.addEnchant(Enchantment.DURABILITY, 5, true);
 
         itmStk.setItemMeta(meta);
 

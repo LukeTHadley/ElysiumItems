@@ -16,7 +16,8 @@ public class ScooberBoots extends CustomItem {
     private static final String NAME = "ScooberBoots";
     private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#4d94ff") + "&lScoober Boots";
     private static final String DESCRIPTION = "When worn in the full set, the user will gain night vision/water breathing when under water!";
-    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#4d94ff") + "Deep Sea Diving!", "&7When worn in the full set the", "&7user will gain night vision/water", "&7breathing when under water!"};
+    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#4d94ff") + "Deep Sea Diving!", "&7When worn in the full set the", "&7user will gain night vision/water", "&7breathing when under water!",
+            "&8This item is not &8modifiable/fixable!"};
 
     public ScooberBoots(){
         super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.LEATHER_BOOTS);
@@ -35,6 +36,7 @@ public class ScooberBoots extends CustomItem {
         meta.setLore(Arrays.asList(getLore()));
 
         meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
+        meta.addEnchant(Enchantment.DURABILITY, 5, true);
 
         itmStk.setItemMeta(meta);
 

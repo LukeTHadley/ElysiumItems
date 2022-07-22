@@ -26,7 +26,7 @@ public class BlockBreakEventListener implements Listener {
             final String item = nbti.getString("item");
             final Block blockMaterial = event.getBlock();
 
-            if (item.equals("MagnetPickaxe")) { // Logic to handle MagnetPickaxe
+            if (item.equals("Magnet")) { // Logic to handle MagnetPickaxe
                 Collection<ItemStack> items = blockMaterial.getDrops(); //Get all the drops that we want to try to place in the players inv...
                 for (ItemStack object : items){ // Iterate over all of the drops...
                     HashMap<Integer, ItemStack> overflowItem = event.getPlayer().getInventory().addItem(object); // Method attempts to place it in the inventory, if it can't, it will return a hashmap of items

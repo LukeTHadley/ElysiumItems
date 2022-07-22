@@ -15,7 +15,8 @@ public class MinersHelmet extends CustomItem {
     private static final String NAME = "MinersHelmet";
     private static final String ITEM_DISPLAY_NAME = "&e&lMiners Helmet";
     private static final String DESCRIPTION = "This item will give the user Haste while they are wearing it!";
-    private static final String[] ITEM_LORE = new String[]{"&6Dig Faster! Mine Deeper! Minecraft!", "&7Gives the user Haste 1 while", "&7they are wearing the helmet!"};
+    private static final String[] ITEM_LORE = new String[]{"&eDig Faster! Mine Deeper! Minecraft!", "&7Gives the user Haste 1 while", "&7they are wearing the helmet!",
+            "&8This item is not &8modifiable/fixable!"};
 
     public MinersHelmet(){
         super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.LEATHER_HELMET);
@@ -32,6 +33,7 @@ public class MinersHelmet extends CustomItem {
         meta.setLore(Arrays.asList(getLore()));
 
         meta.addEnchant(Enchantment.PROTECTION_PROJECTILE, 8, true);
+        meta.addEnchant(Enchantment.DURABILITY, 5, true);
 
         itmStk.setItemMeta(meta);
 

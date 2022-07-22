@@ -13,7 +13,8 @@ import java.util.Arrays;
 public class VolatileSword extends CustomItem {
 
     public VolatileSword() {
-        super("VolatileSword", net.md_5.bungee.api.ChatColor.of("#669999") + "&lVolatile Sword", "This item will explode when it breaks!", new String[]{net.md_5.bungee.api.ChatColor.of("#669999") + "It was good while it lasted...", "&cWARNING: &fThis item will explode and", "&fcause you damage when it break!"}, Material.IRON_SWORD);
+        super("VolatileSword", net.md_5.bungee.api.ChatColor.of("#669999") + "&lVolatile Sword", "This item will explode when it breaks!", new String[]{net.md_5.bungee.api.ChatColor.of("#669999") + "It was good while it lasted...", "&cWARNING: &fThis item will explode and", "&fcause you damage when it break!",
+                "&8This item is not &8modifiable/fixable!"}, Material.IRON_SWORD);
     }
 
     @Override

@@ -14,7 +14,8 @@ public class VoyagerBoots extends CustomItem {
     private static final String NAME = "VoyagerBoots";
     private static final String ITEM_DISPLAY_NAME = net.md_5.bungee.api.ChatColor.of("#ffb3ff") + "&lVoyager Boots";
     private static final String DESCRIPTION = "When worn in the full set, the user will gain 4 extra hearts!";
-    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#ffb3ff") + "My what a big heart you have!", "&7When worn in the full set, the", "&7user will gain 4 extra hearts!"};
+    private static final String[] ITEM_LORE = new String[]{net.md_5.bungee.api.ChatColor.of("#ffb3ff") + "My what a big heart you have!", "&7When worn in the full set, the", "&7user will gain 4 extra hearts!",
+            "&8This item is not &8modifiable/fixable!"};
 
     public VoyagerBoots(){
         super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.CHAINMAIL_BOOTS);
@@ -31,6 +32,7 @@ public class VoyagerBoots extends CustomItem {
 
         meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
         meta.addEnchant(Enchantment.PROTECTION_FALL, 3, true);
+        meta.addEnchant(Enchantment.DURABILITY, 5, true);
 
         itmStk.setItemMeta(meta);
         NBTItem nbti = new NBTItem(itmStk);

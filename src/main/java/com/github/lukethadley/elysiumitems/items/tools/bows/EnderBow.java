@@ -16,7 +16,8 @@ public class EnderBow extends CustomItem {
     private static final String NAME = "EnderBow";
     private static final String ITEM_DISPLAY_NAME = ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "Ender Bow";
     private static final String DESCRIPTION = "Shoot an Ender Pearl with a bow and go where it lands";
-    private static final String[] ITEM_LORE = new String[]{ChatColor.GRAY + "Shoot Pearls! Not Arrows!", ChatColor.GRAY + "You must have an " + ChatColor.LIGHT_PURPLE + "Ender Pearl", ChatColor.GRAY +  "In your inventory to use this bow!"};
+    private static final String[] ITEM_LORE = new String[]{ChatColor.GRAY + "Shoot Pearls! Not Arrows!", ChatColor.GRAY + "You must have " + ChatColor.LIGHT_PURPLE + "one arrow " + ChatColor.GRAY + "and", ChatColor.GRAY + "an " + ChatColor.LIGHT_PURPLE +"Ender Pearl" + ChatColor.GRAY +  " in your", ChatColor.GRAY + "inventory to use this bow!",
+    "&8This item is not &8modifiable/fixable!"};
 
     public EnderBow(){
         super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.BOW);
@@ -31,7 +32,7 @@ public class EnderBow extends CustomItem {
         itmMeta.setLore(Arrays.asList(getLore()));
 
         itmMeta.addEnchant(Enchantment.ARROW_INFINITE, 1, true);
-        itmMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        itmMeta.addEnchant(Enchantment.DURABILITY, 3, true);
         itmStk.setItemMeta(itmMeta);
 
         NBTItem nbti = new NBTItem(itmStk);

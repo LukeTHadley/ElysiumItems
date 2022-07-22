@@ -16,7 +16,7 @@ public class ToolsCommandHandler implements TabExecutor {
     private ToolsHandler items;
     private ElysiumItems plugin;
 
-    private static final String[] subcommands = new String[]{"list", "give"};
+    private static final String[] subcommands = new String[]{"list", "give", "all"};
 
     public ToolsCommandHandler(ElysiumItems plugin){
         this.plugin = plugin;
@@ -98,6 +98,14 @@ public class ToolsCommandHandler implements TabExecutor {
                             sender.sendMessage(ToolsMessages.PLUGIN_PREFIX + "Please specify a custom item");
                         }
 
+                    }
+                    if (args[0].equalsIgnoreCase("all")) {
+                        if (sender instanceof Player) { //If a player wasn't specified, and the sender was a player, give it to that player
+                            Player p = (Player) sender;
+                            for (CustomItem item : items.getCustomItems().values()){
+                                p.getInventory().addItem(item.getItem());
+                            }
+                        }
                     }
                 }
 

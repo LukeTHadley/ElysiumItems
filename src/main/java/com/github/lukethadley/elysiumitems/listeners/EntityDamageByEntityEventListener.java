@@ -104,7 +104,7 @@ public class EntityDamageByEntityEventListener implements Listener {
                     // Start of logic for Demonic Sword Only
                     else if (item.equals("DemonicSword")) {
                         final Player damager = (Player) event.getDamager();
-                        if (Math.random() < 0.2) {
+                        if (Math.random() < 0.1) {
                             if (!onDemonicSwordCooldown(damager)) {
                                 final Player damagee = (Player) event.getEntity();
                                 damagee.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 200, 0));

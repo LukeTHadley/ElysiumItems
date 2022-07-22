@@ -16,7 +16,8 @@ public class ShotgunBow extends CustomItem {
     private static final String NAME = "ShotgunBow";
     private static final String ITEM_DISPLAY_NAME = ChatColor.BLUE + "" + ChatColor.BOLD + "Shotgun Bow";
     private static final String DESCRIPTION = "Shoots a volly of 5 arrows";
-    private static final String[] ITEM_LORE = new String[]{ChatColor.GRAY + "Shoot a volly of 5 arrows at once!", ChatColor.GRAY + "You must have at least 5", ChatColor.GRAY + "arrows in your inventory."};
+    private static final String[] ITEM_LORE = new String[]{ChatColor.GRAY + "Shoot a volly of 5 arrows at once!", ChatColor.GRAY + "You must have at least 5", ChatColor.GRAY + "arrows in your inventory.",
+            "&8This item is not &8modifiable/fixable!"};
 
     public ShotgunBow(){
         super(NAME, ITEM_DISPLAY_NAME, DESCRIPTION, ITEM_LORE, Material.BOW);
@@ -31,7 +32,7 @@ public class ShotgunBow extends CustomItem {
         itmMeta.setLore(Arrays.asList(getLore()));
 
         itmMeta.addEnchant(Enchantment.ARROW_INFINITE, 1, true);
-        itmMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        itmMeta.addEnchant(Enchantment.DURABILITY, 3, true);
 
         itmStk.setItemMeta(itmMeta);
 

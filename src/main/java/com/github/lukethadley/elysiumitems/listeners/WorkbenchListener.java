@@ -21,10 +21,19 @@ public class WorkbenchListener implements Listener {
                 ItemStack item = event.getCurrentItem();
                 if (item.getType() != Material.AIR) {
                     NBTItem itemnbti = new NBTItem(item);
-                    if (itemnbti.hasKey("plugin")) {
-                        if (itemnbti.getString("plugin").equals("Elysium-Items")) {
+                    if (itemnbti.hasKey("plugin") && !itemnbti.hasKey("modifiable")) {
+                        if (itemnbti.getString("plugin").equals("Elysium-Items") && !itemnbti.getBoolean("modifiable")) {
                             player.sendMessage(ChatColor.translateAlternateColorCodes('&', ToolsMessages.PLUGIN_PREFIX + ToolsMessages.CANT_PLACE_IN_WORKSTATION));
                             event.setCancelled(true);
+                            return;
+                        }
+
+                    }
+                    else if (itemnbti.hasKey("plugin")){
+                        if (itemnbti.getString("plugin").equals("Elysium-Items") && event.getInventory().getType().equals(InventoryType.GRINDSTONE)){
+                            player.sendMessage(ChatColor.translateAlternateColorCodes('&', ToolsMessages.PLUGIN_PREFIX + ToolsMessages.CANT_PLACE_IN_WORKSTATION));
+                            event.setCancelled(true);
+                            return;
                         }
                     }
                 }
@@ -34,12 +43,21 @@ public class WorkbenchListener implements Listener {
                 ItemStack cursor = event.getCursor();
                 if (cursor.getType() != Material.AIR) {
                     NBTItem cursornbti = new NBTItem(cursor);
-                    if (cursornbti.hasKey("plugin")) {
-                        if (cursornbti.getString("plugin").equals("Elysium-Items")) {
+                    if (cursornbti.hasKey("plugin") && !cursornbti.hasKey("modifiable")) {
+                        if (cursornbti.getString("plugin").equals("Elysium-Items") && !cursornbti.getBoolean("modifiable")) {
                             player.sendMessage(ChatColor.translateAlternateColorCodes('&', ToolsMessages.PLUGIN_PREFIX + ToolsMessages.CANT_PLACE_IN_WORKSTATION));
                             event.setCancelled(true);
+                            return;
                         }
                     }
+                    else if (cursornbti.hasKey("plugin")){
+                        if (cursornbti.getString("plugin").equals("Elysium-Items") && event.getInventory().getType().equals(InventoryType.GRINDSTONE)){
+                            player.sendMessage(ChatColor.translateAlternateColorCodes('&', ToolsMessages.PLUGIN_PREFIX + ToolsMessages.CANT_PLACE_IN_WORKSTATION));
+                            event.setCancelled(true);
+                            return;
+                        }
+                    }
+
                 }
             }
         }

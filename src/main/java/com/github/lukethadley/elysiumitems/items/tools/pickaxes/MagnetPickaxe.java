@@ -28,13 +28,12 @@ public class MagnetPickaxe extends CustomItem {
         itmMeta.setDisplayName(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', getItemName()));
         itmMeta.setLore(Arrays.asList(getLore()));
 
-        itmMeta.addEnchant(Enchantment.DIG_SPEED, 4, true);
-
         itmStk.setItemMeta(itmMeta);
 
         NBTItem nbti = new NBTItem(itmStk);
         nbti.setString("plugin", "Elysium-Items");
-        nbti.setString("item", NAME);
+        nbti.setBoolean("modifiable", true);
+        nbti.setString("item", "Magnet");
 
         nbti.applyNBT(itmStk);
 
