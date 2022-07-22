@@ -39,7 +39,7 @@ public class EntityDamageByEntityEventListener implements Listener {
             if (event.getEntity() instanceof Player) {
                 final Firework damager = (Firework) event.getDamager();
                 final Player damagee = (Player) event.getEntity();
-                if (damager.getFireworkMeta().getLore().equals(Arrays.asList(new String[]{"volatileToolExplosion"}.clone()))) { //If it was a firework from a volatile explosion
+                if (damager.getFireworkMeta().getLore() != null && damager.getFireworkMeta().getLore().equals(Arrays.asList(new String[]{"volatileToolExplosion"}.clone()))) { //If it was a firework from a volatile explosion
                     //Negate the damage that the firework does, set the health of the player to half a heart
                     damagee.setHealth(1.0);
                 }
