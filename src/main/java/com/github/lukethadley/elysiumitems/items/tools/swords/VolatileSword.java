@@ -36,7 +36,7 @@ public class VolatileSword extends CustomItem {
 
         nbti.applyNBT(itmStk);
 
-        itmStk.setDurability((short) (getItemType().getMaxDurability() - 3));
+        itmStk.setDurability((short) (getItemType().getMaxDurability() - 5));
 
         return itmStk;
     }
